@@ -16,12 +16,6 @@
 		  "placeholder": "@username@mastodon.instance"
 		},
 		{
-		  "field": "params.photos_category",
-		  "label": "Photos category",
-		  "type": "text",
-		  "placeholder": "Enter your photos category"
-		},
-		{
 		  "field": "params.show_categories",
 		  "label": "Show Categories on Archives",
 		  "type": "boolean"
