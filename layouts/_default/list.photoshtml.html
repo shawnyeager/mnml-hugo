@@ -2,7 +2,12 @@
 <main>
 	<article>
 		<ul class="grid">
-		{{- $list := where .Site.Pages ".Params.photos" "!=" nil -}}
+		{{- if ne (.Site.Params.photos_category | default "") "" }}
+			{{- $category := index .Site.Taxonomies.categories (lower .Site.Params.photos_category) -}}
+			{{- $list := $category.Pages -}}
+		{{- else }}
+			{{- $list := where .Site.Pages ".Params.photos" "!=" nil -}}
+		{{- end }}
 		{{- $len := (len $list) -}}
 		{{ range $index, $value := $list }}
 			<li class="grid-item">
