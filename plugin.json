@@ -14,7 +14,8 @@
 		  "label": "Fediverse creator",
 		  "type": "text",
 		  "placeholder": "@username@mastodon.instance"
-		},{
+		},
+		{
 		  "field": "params.show_categories",
 		  "label": "Show Categories on Archives",
 		  "type": "boolean"
