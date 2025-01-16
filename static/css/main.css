@@ -815,6 +815,14 @@ a.tinylytics_webring {
 }
 
 /* photos page */
+main.photos {
+  max-width: var(--site-width);
+}
+
+main.photos-wide {
+  max-width: var(--header-width);
+}
+
 ul.grid * {
     box-sizing: border-box;
     margin: 0;
@@ -826,11 +834,15 @@ ul.grid {
     margin: 0;
     margin-top: 20px;
     list-style-type: none;
-  display: grid;
+    display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: auto;
     grid-auto-flow: dense;
     gap: 9px;
+}
+
+main.photos-wide ul.grid {
+  grid-template-columns: repeat(4, 1fr);
 }
 
 ul.grid li.grid-item {
@@ -838,13 +850,22 @@ ul.grid li.grid-item {
     padding: 0;
 }
 
-ul.grid li.grid-item img {
+main.photos ul.grid li.grid-item img {
     width: 100%;
-    height: calc(var(--site-width) / 3 * .8);
+    height: calc((var(--site-width) / 3) * .8);
     display: block;
     margin: 0;
     padding: 0;
     object-fit: cover;
+}
+
+main.photos-wide ul.grid li.grid-item img {
+  width: 100%;
+  height: calc((var(--header-width) / 4) * .8);
+  display: block;
+  margin: 0;
+  padding: 0;
+  object-fit: cover;
 }
 
 ul.grid li.grid-item img:hover {
@@ -940,19 +961,23 @@ ul.grid li.grid-item img:hover {
   }
 
   input.subscribe-input {
-    width:100%;
+    width: 100%;
   }
 
   input.subscribe-submit {
-    width:100%;padding:9px;
+    width: 100%;
+    padding: 9px;
   }
   
-  ul.grid {
-    grid-template-columns: repeat(2, 1fr);
+  main.photos ul.grid,
+  main.photos-wide ul.grid {
+    grid-template-columns: repeat(3, 1fr);
   }
   
-  ul.grid li.grid-item img {
-    height: calc(var(--site-width) / 2 * .8);
+  main.photos ul.grid li.grid-item img,
+  main.photos-wide ul.grid li.grid-item img {
+    width: 100%;
+    height: calc((var(--site-width) / 3) * .6);
   }
   
 }

@@ -1,5 +1,5 @@
 {{ define "main" }}
-<main>
+<main class="photos{{ if .Site.Params.full_width_photos }}{{ print "-wide" }}{{ end }}">
 	<article>
 		<ul class="grid">
 		{{- $list := where .Site.Pages ".Params.photos" "!=" nil -}}

@@ -1,5 +1,5 @@
 {
-	"version": "2.1.6",
+	"version": "2.2.0",
 	"title": "mnml",
 	"description": "A minimal, simple and clean Micro.blog theme.",
 	"fields": [
@@ -14,6 +14,11 @@
 		  "label": "Fediverse creator",
 		  "type": "text",
 		  "placeholder": "@username@mastodon.instance"
+		},
+		{
+		  "field": "params.full_width_photos",
+		  "label": "Show Full Width Photos Page",
+		  "type": "boolean"
 		},
 		{
 		  "field": "params.show_categories",
