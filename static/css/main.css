@@ -814,7 +814,6 @@ a.tinylytics_webring {
     transition: ease-in-out 0.25s;
 }
 
-/* photos page */
 main.photos {
   max-width: var(--site-width);
 }
@@ -879,6 +878,12 @@ ul.grid img:hover {
     -webkit-filter: brightness(70%);
     filter: brightness(70%);
     transition: ease-in-out 0.25s;
+}
+
+@media (max-width: 460px) {
+    ul.grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media only screen and (max-width: 768px) {
@@ -973,10 +978,6 @@ ul.grid img:hover {
   input.subscribe-submit {
     width: 100%;
     padding: 9px;
-  }
-  
-  ul.grid {
-      grid-template-columns: repeat(2, 1fr);
   }
   
 }
