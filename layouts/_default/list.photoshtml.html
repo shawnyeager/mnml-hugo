@@ -5,7 +5,7 @@
 		{{- $list := where .Site.Pages ".Params.photos" "!=" nil -}}
 		{{- $len := (len $list) -}}
 		{{ range $index, $value := $list }}
-			<li class="grid-item">
+			<li>
 				<a href="{{ .Permalink }}">
 					{{ range first 1 .Params.photos }}
 						<img src="{{ . }}" loading="lazy" />
@@ -16,4 +16,93 @@
 		</ul>
 	</article>
 </main>
+<script>
+	// Maintain a set of elements to resize
+	const elementsToResize = new Set();
+
+	// Debounce function to limit resize calculations
+	function debounce(func, wait) {
+		let timeout;
+		return function executedFunction(...args) {
+			const later = () => {
+				clearTimeout(timeout);
+				func(...args);
+			};
+			clearTimeout(timeout);
+			timeout = setTimeout(later, wait);
+		};
+	}
+
+	// Batch resize all tracked elements
+	function resizeAllElements() {
+		elementsToResize.forEach(element => {
+			if (element.isConnected) {
+				element.style.height = element.offsetWidth + 'px';
+			} else {
+				elementsToResize.delete(element);
+			}
+		});
+		updateDimensions();
+	}
+
+	// Debounced resize handler
+	const debouncedResize = debounce(resizeAllElements, 100);
+
+	// Add window resize listener
+	window.addEventListener('resize', debouncedResize);
+
+	function resizeImageHeight(imageElement) {
+		if (!imageElement) return;
+		
+		elementsToResize.add(imageElement);
+
+		const listItem = imageElement.closest('li');
+
+		// Handle successful load
+		imageElement.addEventListener('load', function() {
+			imageElement.style.height = imageElement.offsetWidth + 'px';
+			listItem.classList.add('loaded');
+			imageElement.classList.add('visible');
+		});
+
+		// Handle error case
+		imageElement.addEventListener('error', function() {
+			elementsToResize.delete(imageElement);
+			listItem.innerHTML = 'Failed to load image';
+			listItem.style.padding = '2rem';
+			listItem.style.textAlign = 'center';
+		});
+
+		// If image is already loaded
+		if (imageElement.complete) {
+			imageElement.style.height = imageElement.offsetWidth + 'px';
+			listItem.classList.add('loaded');
+			imageElement.classList.add('visible');
+		}
+	}
+
+	// Set up intersection observer for lazy loading
+	const observer = new IntersectionObserver((entries) => {
+		entries.forEach(entry => {
+			if (entry.isIntersecting) {
+				const img = entry.target;
+				resizeImageHeight(img);
+				observer.unobserve(img);
+			}
+		});
+	}, {
+		rootMargin: '50px' // Start loading slightly before they come into view
+	});
+
+	// Initialize all images
+	document.querySelectorAll('.grid img').forEach(img => {
+		if (img.loading === 'lazy') {
+			observer.observe(img);
+		} else {
+			resizeImageHeight(img);
+		}
+	});
+
+	updateDimensions();
+</script>
 {{ end }}

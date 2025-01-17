@@ -845,30 +845,43 @@ main.photos-wide ul.grid {
   grid-template-columns: repeat(4, 1fr);
 }
 
-ul.grid li.grid-item {
+ul.grid li {
     margin: 0;
     padding: 0;
+    border-radius: 1rem;
+    background: var(--accent-1);
+    overflow: hidden;
+    position: relative;
+    min-height: 200px;
 }
 
-main.photos ul.grid li.grid-item img {
+ul.grid li::before {
+  content: "Loading...";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--accent-3);
+}
+
+ul.grid li.loaded::before {
+  display: none;
+}
+
+ul.grid img {
     width: 100%;
-    height: calc((var(--site-width) / 3) * .8);
     display: block;
-    margin: 0;
-    padding: 0;
     object-fit: cover;
+    transition: height 0.2s ease;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
-main.photos-wide ul.grid li.grid-item img {
-  width: 100%;
-  height: calc((var(--header-width) / 4) * .8);
-  display: block;
-  margin: 0;
-  padding: 0;
-  object-fit: cover;
+ul.grid img.visible {
+  opacity: 1 !important;
 }
 
-ul.grid li.grid-item img:hover {
+ul.grid img:hover {
     -moz-filter: brightness(70%);
     -webkit-filter: brightness(70%);
     filter: brightness(70%);
@@ -969,15 +982,8 @@ ul.grid li.grid-item img:hover {
     padding: 9px;
   }
   
-  main.photos ul.grid,
-  main.photos-wide ul.grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  
-  main.photos ul.grid li.grid-item img,
-  main.photos-wide ul.grid li.grid-item img {
-    width: 100%;
-    height: calc((var(--site-width) / 3) * .6);
+  ul.grid {
+      grid-template-columns: repeat(2, 1fr);
   }
   
 }
