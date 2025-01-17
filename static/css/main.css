@@ -831,7 +831,7 @@ ul.grid * {
 
 ul.grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
     gap: 1rem;
     padding: 0;
     margin: 0;
@@ -845,7 +845,7 @@ ul.grid li {
     background: var(--accent-1);
     overflow: hidden;
     position: relative;
-    min-height: 200px;
+    min-height: 175px;
 }
 
 ul.grid li::before {
