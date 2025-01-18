@@ -5,7 +5,7 @@
 	"fields": [
 		{
 		  "field": "params.custom_avatar",
-		  "label": "Custom header avatar",
+		  "label": "Custom header icon",
 		  "type": "text",
 		  "placeholder": "Enter a full URL to an image"
 		},
