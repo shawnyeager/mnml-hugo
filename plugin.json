@@ -1,11 +1,11 @@
 {
-	"version": "2.2.1",
+	"version": "2.2.2",
 	"title": "mnml",
 	"description": "A minimal, simple and clean Micro.blog theme.",
 	"fields": [
 		{
 		  "field": "params.custom_avatar",
-		  "label": "Custom avatar",
+		  "label": "Custom header avatar",
 		  "type": "text",
 		  "placeholder": "Enter a full URL to an image"
 		},
@@ -17,17 +17,17 @@
 		},
 		{
 		  "field": "params.full_width_photos",
-		  "label": "Show Full Width Photos Page",
+		  "label": "Show full width photos page",
 		  "type": "boolean"
 		},
 		{
 		  "field": "params.show_categories",
-		  "label": "Show Categories on Archives",
+		  "label": "Show categories on archives page",
 		  "type": "boolean"
 		},
 		{
 		  "field": "params.hide_credit",
-		  "label": "Hide footer credits ",
+		  "label": "Hide footer credits",
 		  "type": "boolean"
 		}
 	]
