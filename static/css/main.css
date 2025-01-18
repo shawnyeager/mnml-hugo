@@ -283,9 +283,14 @@ input[type=submit]:active {
   background: var(--link);
 }
 
+input[type=date],
 input[type=email],
+input[type=number],
+input[type=search],
+input[type=tel],
 input[type=text],
-input[type=search] {
+input[type=url],
+textarea {
   padding: 8px 12px;
   background: var(--accent-1);
   border: 1px solid var(--accent-2);
@@ -815,77 +820,7 @@ a.tinylytics_webring {
     transition: ease-in-out 0.25s;
 }
 
-main.photos {
-  max-width: var(--site-width);
-}
 
-main.photos-wide {
-  max-width: var(--photos-wide);
-}
-
-ul.grid * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-ul.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 1rem;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-}
-
-ul.grid li {
-    margin: 0;
-    padding: 0;
-    border-radius: 1rem;
-    background: var(--accent-1);
-    overflow: hidden;
-    position: relative;
-    min-height: 160px;
-}
-
-ul.grid li::before {
-  content: "Loading...";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: var(--accent-3);
-}
-
-ul.grid li.loaded::before {
-  display: none;
-}
-
-ul.grid img {
-    width: 100%;
-    display: block;
-    object-fit: cover;
-    transition: height 0.2s ease;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-ul.grid img.visible {
-  opacity: 1 !important;
-}
-
-ul.grid img:hover {
-    -moz-filter: brightness(70%);
-    -webkit-filter: brightness(70%);
-    filter: brightness(70%);
-    transition: ease-in-out 0.25s;
-}
-
-@media (max-width: 460px) {
-    ul.grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
 
 @media only screen and (max-width: 768px) {
   body {

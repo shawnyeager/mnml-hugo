@@ -16,6 +16,17 @@
 		  "placeholder": "@username@mastodon.instance"
 		},
 		{
+		  "field": "params.photos_category",
+		  "label": "Photos category",
+		  "type": "text",
+		  "placeholder": "@username@mastodon.instance"
+		},
+		{
+		  "field": "params.masonry_layout",
+		  "label": "Use photos masonry layout",
+		  "type": "boolean"
+		},
+		{
 		  "field": "params.full_width_photos",
 		  "label": "Show full width photos page",
 		  "type": "boolean"
