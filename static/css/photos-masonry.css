@@ -1,3 +1,11 @@
+main.photos {
+  max-width: var(--site-width);
+}
+
+main.photos-wide {
+  max-width: var(--photos-wide);
+}
+
 .masonry-grid * {
 	box-sizing: border-box;
 	margin: 0;
