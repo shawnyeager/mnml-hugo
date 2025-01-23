@@ -63,19 +63,19 @@ main.photos-wide {
 	transition: ease-in-out 0.25s;
 }
 
-@media (max-width: 1300px) {
+@media (max-width: 1500px) {
 	.masonry-grid {
 		column-count: 4;
 	}
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1200px) {
 	.masonry-grid {
 		column-count: 3;
 	}
 }
 
-@media (max-width: 800px) {
+@media (max-width: 900px) {
 	.masonry-grid {
 		column-count: 2;
 	}
