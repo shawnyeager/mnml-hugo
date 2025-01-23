@@ -1,9 +1,11 @@
 main.photos {
   max-width: var(--site-width);
+  margin: 0 auto;
 }
 
 main.photos-wide {
   max-width: var(--photos-wide);
+  margin: 0 auto;
 }
 
 ul.grid * {

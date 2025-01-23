@@ -1,26 +1,22 @@
-<main class="photos{{ if .Site.Params.full_width_photos }}{{ print "-wide" }}{{ end }}">
-	<article>
-		<ul class="grid">
-		{{- $list := where .Site.Pages ".Params.photos" "!=" nil -}}
-		{{- $category := index .Site.Taxonomies.categories (lower .Site.Params.photos_category) -}}
-		{{- if $category }}
-			{{- $list = $category.Pages -}}
-		{{ end }}
-		{{- $len := (len $list) -}}
-		{{ range $index, $value := $list }}
-			{{- if .Params.photos -}}
-			<li>
-				<a href="{{ .Permalink }}">
-					{{ range first 1 .Params.photos }}
-						<img src="{{ . }}" loading="lazy" />
-					{{ end }}
-				</a>
-			</li>
-			{{- end -}}
-		{{- end -}}
-		</ul>
-	</article>
-</main>
+<ul class="grid">
+{{- $list := where .Site.Pages ".Params.photos" "!=" nil -}}
+{{- $category := index .Site.Taxonomies.categories (lower .Site.Params.photos_category) -}}
+{{- if $category }}
+	{{- $list = $category.Pages -}}
+{{ end }}
+{{- $len := (len $list) -}}
+{{ range $index, $value := $list }}
+	{{- if .Params.photos -}}
+	<li>
+		<a href="{{ .Permalink }}">
+			{{ range first 1 .Params.photos }}
+				<img src="{{ . }}" loading="lazy" />
+			{{ end }}
+		</a>
+	</li>
+	{{- end -}}
+{{- end -}}
+</ul>
 <script>
 	const elementsToResize = new Set();
 	function debounce(func, wait) {
