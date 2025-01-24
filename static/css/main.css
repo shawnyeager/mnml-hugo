@@ -13,7 +13,7 @@
   --font-weight-bold: 700;
   --header-width: 94rem;
   --site-width: 64rem;
-  --photos-wide: 170rem;
+  --photos-wide: 120rem;
 }
 
 @media (prefers-color-scheme: dark) {

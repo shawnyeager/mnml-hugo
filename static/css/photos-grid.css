@@ -4,7 +4,7 @@ main.photos {
 }
 
 main.photos-wide {
-  max-width: var(--photos-wide);
+  max-width: var(--header-width);
   margin: 0 auto;
 }
 
