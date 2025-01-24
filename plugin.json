@@ -1,5 +1,5 @@
 {
-	"version": "2.3.0",
+	"version": "2.3.1",
 	"title": "mnml",
 	"description": "A minimal, simple and clean Micro.blog theme.",
 	"fields": [
@@ -28,7 +28,7 @@
 		},
 		{
 		  "field": "params.full_width_photos",
-		  "label": "Show full width photos page",
+		  "label": "Show wider photos page",
 		  "type": "boolean"
 		},
 		{
