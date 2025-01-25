@@ -2,8 +2,21 @@
 
 ![mnml](https://raw.githubusercontent.com/jimmitchell/mnml/main/icon.jpg)
 
-A minimal, simple and clean Micro.blog theme.
+A clean and simple minimalist Micro.blog theme.
 
-See it in action at [mnml.micro.blog](https://mnml.micro.blog).
+### Features
 
-Like it? [Buy Me a Coffee](https://buymeacoffee.com/jim.mitchell) or join the "[Buck a Month Club](https://buymeacoffee.com/jim.mitchell/membership)" to show your support.
+- System display mode aware (light and dark)
+- Mobile responsive
+- Grid or Masonry photo layout options
+- Wide or narrow photo page layout setting
+- Custom photos page category setting
+- Use a custom site icon of your choosing
+- [Fediverse Creator](https://blog.joinmastodon.org/2024/07/highlighting-journalism-on-mastodon/) tag support
+- Pagination on all post related pages
+
+You can see the theme in action at [mnml.micro.blog](https://mnml.micro.blog).
+
+### Support
+
+Like **mnml**? Consider supporting my work by [Buying Me a Coffee](https://buymeacoffee.com/jim.mitchell) or joining the "[Buck a Month Club](https://buymeacoffee.com/jim.mitchell/membership)."

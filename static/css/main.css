@@ -819,7 +819,22 @@ a.tinylytics_webring {
     filter: brightness(70%);
     transition: ease-in-out 0.25s;
 }
-
+.microblog_lightbox_nav {
+  line-height: 40px;
+  font-size: 2rem !important;
+}
+#microblog_lightbox_close_btn {
+  font-size: 2.5rem !important;
+}
+@media only screen and (max-width: 768px) {
+ .microblog_collection img {
+      width: 33% !important;
+      height: 110px !important;
+  }
+}
+img.bookshelf__cover {
+  border-radius: 0;
+}
 
 
 @media only screen and (max-width: 768px) {
