@@ -463,6 +463,11 @@ article ol li {
   display: inline-block;
 }
 
+.categories span {
+  font-size: 1.6rem;
+  color: var(--accent-3);
+}
+
 #list_results p {
   margin: 5rem 0;
 }

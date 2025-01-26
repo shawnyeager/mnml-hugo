@@ -12,10 +12,11 @@
         {{- end }}
         {{ .Content }}
         {{- if isset .Params "categories" }}
-        <p>
+        <p class="categories">
         {{- range $index, $category := .Params.categories }}
+            {{- if $index }} <span>/</span> {{ end }}
             {{- $href := printf "/categories/%s" (urlize $category) | absURL }}
-            <a href="{{ $href }}" class="category">#{{ $category }}</a>
+            <a href="{{ $href }}" class="category">{{ $category }}</a>
         {{- end }}
         </p>
         {{- end }}
