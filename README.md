@@ -19,4 +19,4 @@ You can see the theme in action at [mnml.micro.blog](https://mnml.micro.blog).
 
 ### Support
 
-Like **mnml**? Consider supporting my work by [Buying Me a Coffee](https://buymeacoffee.com/jim.mitchell) or joining the "[Buck a Month Club](https://buymeacoffee.com/jim.mitchell/membership)."
+Like **mnml**? Consider supporting the project: [Buy Me a Coffee](https://buymeacoffee.com/jim.mitchell) or join the exclusive "[Buck a Month Club](https://buymeacoffee.com/jim.mitchell/membership)."
