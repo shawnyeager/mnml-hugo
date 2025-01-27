@@ -6,7 +6,7 @@
     {{- if .Title }}
         <h2 class="post-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
         <p class="post-date">{{ .Date.Format "Monday, January 2, 2006" }}</p>
-        {{- if .Params.show_full_post }}
+        {{- if .Site.Params.show_full_post }}
         {{ .Content }}
         {{- else }}
         <p>{{ .Summary | safeHTML }}</p>
@@ -16,7 +16,7 @@
         {{- end }}
     {{- else if in .RawContent "<!--more-->"}}
         <p class="post-date btm-margin"><a href="{{ .Permalink }}">{{ .Date.Format "Monday, January 2, 2006" }} →</a></p>
-        {{- if .Params.show_full_post }}
+        {{- if .Site.Params.show_full_post }}
         {{ .Content }}
         {{- else }}
         <p>{{ .Summary | safeHTML }}</p>
