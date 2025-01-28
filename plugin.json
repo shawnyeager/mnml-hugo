@@ -16,12 +16,6 @@
 		  "placeholder": "@username@mastodon.instance"
 		},
 		{
-		  "field": "params.index_category",
-		  "label": "Home page category",
-		  "type": "text",
-		  "placeholder": "Set a home page category. Leave blank for all posts."
-		},
-		{
 		  "field": "params.photos_category",
 		  "label": "Photos category",
 		  "type": "text",
