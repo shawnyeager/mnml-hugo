@@ -1,6 +1,12 @@
 {{ define "main" }}
 <main>
-    {{- $paginator := .Paginate (where .Site.Pages.ByDate.Reverse "Type" "post") (index .Site.Params "archive-paginate" | default 20) }}
+    {{- $allPages := where .Site.Pages.ByDate.Reverse "Type" "post" }}
+    {{- $home_category := .Site.Params.home_category }}
+    {{- $pages := $allPages }}
+    {{- if $home_category }}
+        {{- $pages = where $allPages "Params.categories" "intersect" (slice $home_category) }}
+    {{- end }}
+    {{- $paginator := .Paginate $pages (index .Site.Params "archive-paginate" | default 20) }}
     {{- range $paginator.Pages  }}
     <article>
     {{- if .Title }}

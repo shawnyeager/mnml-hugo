@@ -8,14 +8,15 @@ A clean and simple minimalist Micro.blog theme.
 
 - System display mode aware (light and dark)
 - Mobile responsive
+- Custom home page category setting
+- Custom photos page category setting
 - Grid or Masonry photo layout options
 - Wide or narrow photo page layout setting
-- Custom photos page category setting
 - Use a custom site icon of your choosing
 - [Fediverse Creator](https://blog.joinmastodon.org/2024/07/highlighting-journalism-on-mastodon/) tag support
 - Pagination on all post related pages
 
-You can see the theme in action at [mnml.micro.blog](https://mnml.micro.blog).
+See the theme in action at [mnml.micro.blog](https://mnml.micro.blog).
 
 ### Support
 

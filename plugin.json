@@ -16,10 +16,21 @@
 		  "placeholder": "@username@mastodon.instance"
 		},
 		{
+		  "field": "params.home_category",
+		  "label": "Home page category",
+		  "type": "text",
+		  "placeholder": "Set a single home page category. Leave blank for all posts."
+		},
+		{
+		  "field": "params.show_full_post",
+		  "label": "Show full posts on homepage",
+		  "type": "boolean"
+		},
+		{
 		  "field": "params.photos_category",
 		  "label": "Photos category",
 		  "type": "text",
-		  "placeholder": "Set a photo category. Leave blank for all images."
+		  "placeholder": "Set a single photo category. Leave blank for all images."
 		},
 		{
 		  "field": "params.masonry_layout",
@@ -29,11 +40,6 @@
 		{
 		  "field": "params.full_width_photos",
 		  "label": "Show wider photos page",
-		  "type": "boolean"
-		},
-		{
-		  "field": "params.show_full_post",
-		  "label": "Show full posts on homepage",
 		  "type": "boolean"
 		},
 		{
