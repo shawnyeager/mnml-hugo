@@ -16,9 +16,7 @@
         {{ .Content }}
         {{- else }}
         <p>{{ .Summary | safeHTML }}</p>
-        {{- if .Truncated }}
         <p><a href="{{ .Permalink }}">Continue reading →</a></p>
-        {{- end }}
         {{- end }}
     {{- else if in .RawContent "<!--more-->"}}
         <p class="post-date btm-margin"><a href="{{ .Permalink }}">{{ .Date.Format "Monday, January 2, 2006" }} →</a></p>

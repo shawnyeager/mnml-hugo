@@ -30,7 +30,6 @@ ul.grid li {
 	background: var(--accent-1);
 	overflow: hidden;
 	position: relative;
-	min-height: 180px;
 }
 
 ul.grid li::before {
