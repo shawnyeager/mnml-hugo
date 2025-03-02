@@ -458,14 +458,25 @@ article ol li {
   margin-bottom: 5px;
 }
 
-.category {
+a.category:link,
+a.category:visited {
+  text-decoration: none;
+  color: var(--accent-3);
+  border: 1px solid var(--accent-1);
+  background-color: var(--accent-1);
   font-size: 1.6rem;
+  border-radius: .6rem;
+  padding: 1px 8px;
   display: inline-block;
+  margin: 0 1px 5px 0;
+  line-height: 1.6;
 }
 
-.categories span {
-  font-size: 1.6rem;
-  color: var(--accent-2);
+a.category:hover,
+a.category:active {
+  border: 1px solid var(--link);
+  background: var(--link);
+  color: var(--background);
 }
 
 #list_results p {
@@ -489,8 +500,8 @@ article ol li {
 
 .category-list button {
   text-decoration: none;
-  color: var(--accent-3);
-  border: 1px solid var(--accent-2);
+  color: var(--text);
+  border: 1px solid var(--accent-1);
   background-color: var(--accent-1);
   font-size: 1.6rem;
   border-radius: .6rem;

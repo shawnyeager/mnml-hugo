@@ -1,5 +1,5 @@
 {
-	"version": "2.3.4",
+	"version": "2.3.5",
 	"title": "mnml",
 	"description": "A minimal, simple and clean Micro.blog theme.",
 	"fields": [
@@ -17,9 +17,9 @@
 		},
 		{
 		  "field": "params.home_category",
-		  "label": "Home page category",
+		  "label": "Home page categories",
 		  "type": "text",
-		  "placeholder": "Set a single home page category. Leave blank for all posts."
+		  "placeholder": "Home page categories. Leave blank for all posts."
 		},
 		{
 		  "field": "params.show_full_post",
