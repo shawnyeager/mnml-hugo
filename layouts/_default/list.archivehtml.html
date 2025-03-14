@@ -1,7 +1,7 @@
 {{- define "main" }}
 <main class="archive">
 	<article>
-		<h2 class="page-title">{{ .Title }}</h2>
+		<h1 class="page-title">{{ .Title }}</h1>
 		{{- $list := ($.Site.GetPage "taxonomyTerm" "categories").Pages }}
 		{{- if and (.Site.Params.show_categories) (gt (len $list) 0) }}
 		<div class="archive-categories">

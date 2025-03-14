@@ -5,7 +5,7 @@
   --link-hover: #101115;
   --accent-1: #f6f6f6;
   --accent-2: #d4d4d6;
-  --accent-3: #93959a;
+  --accent-3: #84868b;
   --highlight: #e3e3e6;
   --sans-serif-font: 'GTW', -apple-system, system-ui, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;
   --mono-space-font: ui-monospace, SFMono-Regular, ui-monospace, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
@@ -500,7 +500,7 @@ a.category:active {
 
 .category-list button {
   text-decoration: none;
-  color: var(--text);
+  color: var(--accent-3);
   border: 1px solid var(--accent-1);
   background-color: var(--accent-1);
   font-size: 1.6rem;
