@@ -14,6 +14,7 @@
   --header-width: 94rem;
   --site-width: 64rem;
   --photos-wide: 120rem;
+  --border-radius: 0.6rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -188,7 +189,7 @@ hr {
 }
 
 blockquote {
-  border-left: 3px solid var(--link);
+  border-left: 3px solid var(--accent-2);
   color: var(--accent-3);
   margin: 2rem 0;
   padding: 0 2rem;
@@ -239,9 +240,10 @@ pre {
 
 code {
   background: var(--text);
-  border-radius: 1rem;
+  border-radius: var(--border-radius);
   color: var(--background);
-  padding: 3px;
+  padding: 2px 4px;
+  white-space: nowrap;
 }
 
 pre code {
@@ -249,6 +251,7 @@ pre code {
   border: none;
   color: inherit;
   padding: 0;
+  white-space: pre;
 }
 
 div.highlight pre {
@@ -272,7 +275,7 @@ input[type=submit] {
   text-decoration: none;
   margin: 4px 1px;
   cursor: pointer;
-  border-radius: .5rem;
+  border-radius: var(--border-radius);
 }
 
 input[type=button]:hover,
@@ -294,7 +297,7 @@ textarea {
   padding: 8px 12px;
   background: var(--accent-1);
   border: 1px solid var(--accent-2);
-  border-radius: .5rem;
+  border-radius: var(--border-radius);
   margin: 4px 1px;
   width: 100%;
   font-size: 1.8rem;
@@ -328,7 +331,7 @@ main {
 }
 
 .u-photo {
-  border-radius: .6rem;
+  border-radius: var(--border-radius);
   display: inline;
   margin-right: 8px;
   margin-top: -3px;
@@ -464,8 +467,8 @@ a.category:visited {
   color: var(--accent-3);
   border: 1px solid var(--accent-1);
   background-color: var(--accent-1);
-  font-size: 1.6rem;
-  border-radius: .6rem;
+  font-size: 1.4rem;
+  border-radius: var(--border-radius);
   padding: 1px 8px;
   display: inline-block;
   margin: 0 1px 5px 0;
@@ -504,7 +507,7 @@ a.category:active {
   border: 1px solid var(--accent-1);
   background-color: var(--accent-1);
   font-size: 1.6rem;
-  border-radius: .6rem;
+  border-radius: var(--border-radius);
   padding: 2px 10px;
   display: inline-block;
   margin: 0 1px 5px 0;
@@ -522,7 +525,7 @@ a.category:active {
   display: inline-block;
   background: var(--accent-1);
   border: 1px solid var(--accent-2);
-  border-radius: .6rem;
+  border-radius: var(--border-radius);
   padding: 0px 10px 3px 6px;
 }
 
@@ -543,8 +546,8 @@ a.category:active {
 .microblog_post {
   margin-bottom: 1rem;
   padding: 2.3rem 2rem;
-  border: 1px solid var(--accent-2);
-  border-radius: 1rem;
+  background: var(--accent-1);
+  border-radius: var(--border-radius);
 }
 
 .microblog_conversation .microblog_post {
@@ -552,12 +555,12 @@ a.category:active {
 }
 
 .microblog_user {
-  font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-semibold);
 }
 
 .microblog_fullname {
-  font-weight: var(--font-weight-bold);
-  font-size: 1.6rem;
+  font-weight: var(--font-weight-semibold);
+  font-size: 1.7rem;
   margin-left: 6px;
   display: inline-block;
   line-height: 30px;
@@ -567,7 +570,7 @@ a.category:active {
   vertical-align: middle;
   width: 30px;
   height: auto;
-  border-radius: .6rem;
+  border-radius: var(--border-radius);
   max-width: 30px !important;
   display: inline-block;
   margin-top: -2px;
@@ -582,7 +585,7 @@ a.category:active {
 .microblog_time a,
 .microblog_time a:visited {
   color: var(--accent-3);
-  font-size: 1.6rem;
+  font-size: 1.7rem;
   text-decoration: none;
 }
 
@@ -599,14 +602,13 @@ a.category:active {
 }
 
 .microblog_reply_form {
-  border: 1px solid var(--accent-2);
   background: var(--accent-1);
   padding: 1rem 2rem;
-  border-radius: 1rem;
+  border-radius: var(--border-radius);
 }
 
 .microblog_reply_signin {
-  font-size: 1.6rem;
+  font-size: 1.7rem;
   margin-top: .75rem;
 }
 
@@ -615,7 +617,7 @@ a.category:active {
   background: var(--background);
   color: var(--text);
   width: 100%;
-  border-radius: .5rem;
+  border-radius: var(--border-radius);
   padding: 8px;
   z-index: 0;
 }
@@ -638,7 +640,7 @@ a.category:active {
 
 .microblog_reply_button {
   text-align: right;
-  font-size: 1.6rem;
+  font-size: 1.7rem;
   margin-top: -.75rem;
   margin-bottom: .75rem;
 }
@@ -690,6 +692,25 @@ main.archive .entry p {
   padding: 0;
 }
 
+#guestbooks___guestbook-made-with {
+  color: var(--accent-3);
+}
+
+#guestbooks___guestbook-messages-container blockquote {
+  border: none;
+  color: var(--text);
+  font-style: normal;
+  margin: 0;
+  padding: 0;
+}
+
+#guestbooks___guestbook-messages-container > div {
+  background: var(--accent-1);
+  border-radius: var(--border-radius);
+  margin: 1.5rem 0;
+  padding: 0.1rem 3rem 2rem;
+}
+
 footer {
   color: var(--accent-3);
   font-size: 1.6rem;
@@ -708,7 +729,7 @@ footer p {
 }
 
 .to-top {
-  border-radius: .6rem;
+  border-radius: var(--border-radius);
   height: 3.6rem;
   width: 3.6rem;
   vertical-align: middle;
@@ -754,10 +775,10 @@ a.reply-on-mastodon,
 a.reply-by-email {
   text-decoration: none;
   color: var(--accent-3);
-  border: 1px solid var(--accent-2);
+  border: 1px solid var(--accent-1);
   background-color: var(--accent-1);
   font-size: 1.4rem;
-  border-radius: .6rem;
+  border-radius: var(--border-radius);
   padding: 2px 10px;
   display: inline-block;
   margin: 2px 0;
@@ -773,8 +794,8 @@ a.reply-by-email:active,
 a.conversation-on-mb:active,
 a.reply-on-mastodon:active,
 .did_select {
-  border: 1px solid var(--text);
-  background: var(--text);
+  border: 1px solid var(--link);
+  background: var(--link);
   color: var(--background);
 }
 
@@ -802,7 +823,7 @@ a.tinylytics_webring {
 }
 
 .tinylytics_webring_avatar {
-  border-radius: .6rem;
+  border-radius: var(--border-radius);
   width: 24px;
   height: auto;
   vertical-align: middle;

@@ -3,9 +3,9 @@
     <article>
         {{- if .Title }}
         <h1 class="post-title">{{ .Title }}</h1>
-        <p class="post-date">{{ .Date.Format "Monday, January 2, 2006" }}</p>
+        <p class="post-date">{{- if .Site.Params.use_short_date }}{{ .Date | time.Format ":date_short" }}{{- else }}{{ .Date | time.Format ":date_full" }}{{- end }}</p>
         {{- else }}
-        <p class="post-date btm-margin">{{ .Date.Format "Monday, January 2, 2006" }}</p>
+        <p class="post-date btm-margin">{{- if .Site.Params.use_short_date }}{{ .Date | time.Format ":date_short" }}{{- else }}{{ .Date | time.Format ":date_full" }}{{- end }}</p>
         {{- end }}
         {{- with .Params.audio }}
         <script type="text/javascript" src="https://micro.blog/narration.js?url={{ . }}"></script>
@@ -42,8 +42,8 @@
     {{- if or (.NextInSection) (.PrevInSection) }}
     <nav class="main-nav">
         <ul>
-            <li>{{ if .PrevInSection }}<a href="{{ .PrevInSection.Permalink }}">← Older</a>{{ end }}</li>
-            <li>{{ if .NextInSection }}<a href="{{ .NextInSection.Permalink }}">Newer →</a>{{ end }}</li>
+            <li>{{ if .PrevInSection }}<a href="{{ .PrevInSection.Permalink }}">← {{ T "Older" }}</a>{{ end }}</li>
+            <li>{{ if .NextInSection }}<a href="{{ .NextInSection.Permalink }}">{{ T "Newer" }} →</a>{{ end }}</li>
         </ul>
     </nav>
     {{- end }}

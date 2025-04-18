@@ -8,19 +8,42 @@
   <meta name="fediverse:creator" content="{{ $creator }}" />
   {{- end }}
   <title>{{- block "title" . -}}{{- .Site.Title -}}{{- if and .Title (ne .Title .Site.Title) }} | {{ .Title }}{{- end -}}{{- end -}}</title>
+  
+  <meta name="twitter:card" content="summary">
+  {{- with .Title }}
+  <meta name="twitter:title" content="{{ . }}">
+  <meta property="og:title" content="{{ . }}">
+  {{- else }}
+  <meta name="twitter:title" content="{{ .Site.Title }}">
+  <meta property="og:title" content="{{ .Site.Title }}">
+  {{- end }}
+  {{- if .IsHome }}
+  <meta name="twitter:description" content="{{ .Site.Params.itunes_description | truncate 125 }}">
+  <meta name="og:description" content="{{ .Site.Params.itunes_description | truncate 60 }}">
+  <meta name="description" content="{{ .Site.Params.itunes_description }}">
+  <meta name="twitter:image" content="{{ .Site.Author.avatar }}">
+  <meta property="og:image" content="{{ .Site.Author.avatar }}">
+  {{- else }}
+  <meta name="twitter:description" content="{{ .Summary | truncate 60 }}">
+  <meta name="og:description" content="{{ .Summary | truncate 60 }}">
   <meta name="description" content="{{ (or .Summary .Site.Params.itunes_description) }}">
+  {{- end }}
+
   <link rel="canonical" href="{{ .Permalink }}">
   <link rel="author" href="humans.txt" />
   <link rel="preload" href="/fonts/GT-W-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous"/>
   <link rel="preload" href="/fonts/GT-W-Regular-Oblique.woff2" as="font" type="font/woff2" crossorigin="anonymous"/>
   <link rel="preload" href="/fonts/GT-W-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous"/>
   <link rel="preload" href="/fonts/GT-W-Bold-Oblique.woff2" as="font" type="font/woff2" crossorigin="anonymous"/>
-  <link rel="stylesheet" href="{{ "css/fonts.css" | relURL }}?{{ .Site.Params.theme_seconds }}">
-  <link rel="stylesheet" href="{{ "css/main.css" | relURL }}?{{ .Site.Params.theme_seconds }}">
+  <link href="{{ "css/fonts.css" | relURL }}?{{ .Site.Params.theme_seconds }}" rel="preload stylesheet preconnect" as="style">
+  <link href="{{ "css/main.css" | relURL }}?{{ .Site.Params.theme_seconds }}" rel="preload stylesheet preconnect" as="style">
   {{- if .Site.Params.masonry_layout }}
-  <link rel="stylesheet" href="{{ "css/photos-masonry.css" | relURL }}?{{ .Site.Params.theme_seconds }}">
+  <link href="{{ "css/photos-masonry.css" | relURL }}?{{ .Site.Params.theme_seconds }}"rel="preload stylesheet preconnect" as="style">
   {{- else }}
-  <link rel="stylesheet" href="{{ "css/photos-grid.css" | relURL }}?{{ .Site.Params.theme_seconds }}">
+  <link href="{{ "css/photos-grid.css" | relURL }}?{{ .Site.Params.theme_seconds }}"rel="preload stylesheet preconnect" as="style">
+  {{- end }}
+  {{- if .Site.Params.narrow_header }}
+  <style>.site-nav {max-width:var(--site-width)}</style>
   {{- end }}
   {{ partial "microblog_head.html" . }}
 </head>

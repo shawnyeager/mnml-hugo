@@ -16,25 +16,25 @@
     <article>
     {{- if .Title }}
         <h2 class="post-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
-        <p class="post-date">{{ .Date.Format "Monday, January 2, 2006" }}</p>
+        <p class="post-date">{{- if .Site.Params.use_short_date }}{{ .Date | time.Format ":date_short" }}{{- else }}{{ .Date | time.Format ":date_full" }}{{- end }}</p>
         {{- if .Site.Params.show_full_post }}
         {{ .Content }}
         {{- else }}
         <p>{{ .Summary | safeHTML }}</p>
-        <p><a href="{{ .Permalink }}">Continue reading →</a></p>
+        <p><a href="{{ .Permalink }}">{{ T "Continue reading" }} →</a></p>
         {{- end }}
     {{- else if in .RawContent "<!--more-->"}}
-        <p class="post-date btm-margin"><a href="{{ .Permalink }}">{{ .Date.Format "Monday, January 2, 2006" }} →</a></p>
+        <p class="post-date btm-margin"><a href="{{ .Permalink }}">{{- if .Site.Params.use_short_date }}{{ .Date | time.Format ":date_short" }}{{- else }}{{ .Date | time.Format ":date_full" }}{{- end }} →</a></p>
         {{- if .Site.Params.show_full_post }}
         {{ .Content }}
         {{- else }}
         <p>{{ .Summary | safeHTML }}</p>
         {{- if .Truncated }}
-        <p><a href="{{ .Permalink }}">Continue reading →</a></p>
+        <p><a href="{{ .Permalink }}">{{ T "Continue reading" }} →</a></p>
         {{- end }}
         {{- end }}
     {{- else }}
-        <p class="post-date btm-margin"><a href="{{ .Permalink }}">{{ .Date.Format "Monday, January 2, 2006" }} →</a></p>
+        <p class="post-date btm-margin"><a href="{{ .Permalink }}">{{- if .Site.Params.use_short_date }}{{ .Date | time.Format ":date_short" }}{{- else }}{{ .Date | time.Format ":date_full" }}{{- end }} →</a></p>
         {{ .Content }}
     {{- end }}
     </article>
@@ -42,8 +42,8 @@
     {{- if or ($paginator.HasNext) ($paginator.HasPrev) }}
     <nav class="main-nav">
         <ul>
-            <li>{{ if $paginator.HasNext }}<a href="{{ $paginator.Next.URL }}">← Older</a>{{ end }}</li>
-            <li>{{ if $paginator.HasPrev }}<a href="{{ $paginator.Prev.URL }}">Newer →</a>{{ end }}</li>
+            <li>{{ if $paginator.HasNext }}<a href="{{ $paginator.Next.URL }}">← {{ T "Older" }}</a>{{ end }}</li>
+            <li>{{ if $paginator.HasPrev }}<a href="{{ $paginator.Prev.URL }}">{{ T "Newer" }} →</a>{{ end }}</li>
         </ul>
     </nav>
     {{- end }}

@@ -42,7 +42,7 @@
 
 	{{- range .Pages }}
 	<div class="post">
-		<a href="{{ .Permalink }}" class="microblog_permalink">{{ .Date.Format "Monday, January 2, 2006" }}</a>
+		<a href="{{ .Permalink }}" class="microblog_permalink">{{ .Date.Format ":date_full" }}</a>
 		{{- if .Title }}
 		<h3>{{ .Title }}</h3>
 		{{- end }}
