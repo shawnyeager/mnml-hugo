@@ -8,7 +8,6 @@
   <meta name="fediverse:creator" content="{{ $creator }}" />
   {{- end }}
   <title>{{- block "title" . -}}{{- .Site.Title -}}{{- if and .Title (ne .Title .Site.Title) }} | {{ .Title }}{{- end -}}{{- end -}}</title>
-  
   <meta name="twitter:card" content="summary">
   {{- with .Title }}
   <meta name="twitter:title" content="{{ . }}">
@@ -28,7 +27,6 @@
   <meta name="og:description" content="{{ .Summary | truncate 60 }}">
   <meta name="description" content="{{ (or .Summary .Site.Params.itunes_description) }}">
   {{- end }}
-
   <link rel="canonical" href="{{ .Permalink }}">
   <link rel="author" href="humans.txt" />
   <link rel="preload" href="/fonts/GT-W-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous"/>
