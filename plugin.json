@@ -1,5 +1,5 @@
 {
-	"version": "2.4.3",
+	"version": "2.4.4",
 	"title": "mnml",
 	"description": "A minimal, simple and clean Micro.blog theme.",
 	"fields": [
@@ -46,6 +46,11 @@
 		{
 		  "field": "params.show_full_post",
 		  "label": "Show full posts on homepage",
+		  "type": "boolean"
+		},
+		{
+		  "field": "params.category_full_post",
+		  "label": "Show full posts on category pages",
 		  "type": "boolean"
 		},
 		{

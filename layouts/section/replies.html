@@ -1,6 +1,6 @@
 {{ define "main" }}
 <main>
-	<h1 class="page-title">Replies</h1>
+	<h1 class="page-title">{{ T "Replies" }}</h1>
 	{{ if .Site.Params.paginate_replies }}
 		{{ $paginator := .Paginate (where .Data.Pages.ByDate.Reverse "Type" "reply") }}
 		{{ $list := $paginator.Pages }}
@@ -8,9 +8,9 @@
 		<article>
 			{{ if .Title }}
 			<h3 class="post-title"><a href="{{ .Permalink }}">{{ .Title }} →</a></h3>
-			<p class="post-date">{{- if .Site.Params.use_short_date }}{{ .Date | time.Format ":date_medium" }}{{- else }}{{ .Date | time.Format ":date_full" }}{{- end }}</p>
+			<p class="post-date">{{- if .Site.Params.use_short_date }}{{ .Date | time.Format ":date_short" }}{{- else }}{{ .Date | time.Format ":date_full" }}{{- end }}</p>
 			{{ else }}
-			<p class="post-date btm-margin"><a href="{{ .Permalink }}">{{- if .Site.Params.use_short_date }}{{ .Date | time.Format ":date_medium" }}{{- else }}{{ .Date | time.Format ":date_full" }}{{- end }} →</a></p>
+			<p class="post-date btm-margin"><a href="{{ .Permalink }}">{{- if .Site.Params.use_short_date }}{{ .Date | time.Format ":date_short" }}{{- else }}{{ .Date | time.Format ":date_full" }}{{- end }} →</a></p>
 			{{ end }}
 			{{ .Content }}
 		</article>
@@ -21,9 +21,9 @@
 		<article>
 			{{ if .Title }}
 			<h3 class="post-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
-			<p class="post-date">{{- if .Site.Params.use_short_date }}{{ .Date | time.Format ":date_medium" }}{{- else }}{{ .Date | time.Format ":date_full" }}{{- end }}</p>
+			<p class="post-date">{{- if .Site.Params.use_short_date }}{{ .Date | time.Format ":date_short" }}{{- else }}{{ .Date | time.Format ":date_full" }}{{- end }}</p>
 			{{ else }}
-			<p class="post-date btm-margin"><a href="{{ .Permalink }}">{{- if .Site.Params.use_short_date }}{{ .Date | time.Format ":date_medium" }}{{- else }}{{ .Date | time.Format ":date_full" }}{{- end }} →</a></p>
+			<p class="post-date btm-margin"><a href="{{ .Permalink }}">{{- if .Site.Params.use_short_date }}{{ .Date | time.Format ":date_short" }}{{- else }}{{ .Date | time.Format ":date_full" }}{{- end }} →</a></p>
 			{{ end }}
 			{{ .Content }}
 		</article>

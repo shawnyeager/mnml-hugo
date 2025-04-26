@@ -13,6 +13,7 @@ A clean and simple minimalist Micro.blog theme.
 - Multiple, comma-separated home page categories are supported.
 - Choose between a wider or narrower site header.
 - Choose between long or short date formats.
+- Display full posts on category pages
 - Custom photos page category setting.
 - Grid or Masonry photo layout options.
 - Wide or narrow photo page layout setting.
@@ -32,4 +33,4 @@ Thank you to the following for their **mnml** localization contributions:
 
 ### Support
 
-If you like **mnml**, consider supporting the project: [Buy Me a Coffee](https://buymeacoffee.com/jim.mitchell) or join the exclusive "[Buck a Month Club](https://buymeacoffee.com/jim.mitchell/membership)."
+If you like **mnml**, consider supporting the project: [Buy Me a Coffee](https://buymeacoffee.com/jim.mitchell).

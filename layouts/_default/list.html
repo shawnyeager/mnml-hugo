@@ -13,7 +13,7 @@
         {{- if .Title }}
             <h2 class="post-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
             <p class="post-date">{{- if .Site.Params.use_short_date }}{{ .Date | time.Format ":date_short" }}{{- else }}{{ .Date | time.Format ":date_full" }}{{- end }}</p>
-            {{- if .Site.Params.show_full_post }}
+            {{- if or (.Site.Params.show_full_post) (.Site.Params.category_full_post) }}
             {{ .Content }}
             {{- else }}
             <p>{{ .Summary | safeHTML }}</p>
