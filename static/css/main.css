@@ -547,13 +547,13 @@ a.category:active {
 }
 
 .microblog_user {
-  font-weight: var(--font-weight-semibold);
+  font-weight: var(--font-weight-bold);
 }
 
 .microblog_fullname {
   display: inline-block;
   font-size: 1.7rem;
-  font-weight: var(--font-weight-semibold);
+  font-weight: var(--font-weight-bold);
   line-height: 30px;
   margin-left: 6px;
 }
