@@ -7,7 +7,7 @@
   {{- if $creator }}
   <meta name="fediverse:creator" content="{{ $creator }}" />
   {{- end }}
-  <title>{{- block "title" . -}}{{- .Site.Title -}}{{- if and .Title (ne .Title .Site.Title) }} | {{ .Title }}{{- end -}}{{- end -}}</title>
+  <title>{{ block "title" . }}{{ if .IsHome }}{{ .Site.Title }}{{ else if .Title }}{{ .Title }} | {{ .Site.Title }}{{ else }}{{ delimit (split .Summary " " | first 5) " " }} … | {{ .Site.Title }}{{ end }}{{ end }}</title>
   <meta name="twitter:card" content="summary">
   {{- with .Title }}
   <meta name="twitter:title" content="{{ . }}">
