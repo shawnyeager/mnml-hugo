@@ -1,22 +1,40 @@
 <ul class="grid">
-{{- $list := where .Site.Pages ".Params.photos" "!=" nil -}}
-{{- $category := index .Site.Taxonomies.categories (lower .Site.Params.photos_category) -}}
+{{- $allFormats := .Site.Params.all_formats }}
+{{- $category := index .Site.Taxonomies.categories (lower .Site.Params.photos_category) }}
+{{- $list := slice }}
 {{- if $category }}
-	{{- $list = $category.Pages -}}
-{{ end }}
-{{- $len := (len $list) -}}
+	{{- if $allFormats }}
+		{{- $list = where $category.Pages ".Params.images" "!=" nil }}
+	{{- else }}
+		{{- $list = where $category.Pages ".Params.photos" "!=" nil }}
+	{{- end }}
+{{- else if $allFormats }}
+	{{- $list = where .Site.Pages ".Params.images" "!=" nil }}
+{{- else }}
+	{{- $list = where .Site.Pages ".Params.photos" "!=" nil }}
+{{- end }}
+{{- $len := (len $list) }}
 {{ range $index, $value := $list }}
-	{{- if .Params.photos -}}
+	{{- if $allFormats }}
 		{{- $postPermalink := .Permalink }}
-		{{ range .Params.photos }}
+		{{ range .Params.images }}
 			<li>
 				<a href="{{ $postPermalink }}">
 					<img src="{{ . }}" loading="lazy" />
 				</a>
 			</li>
 		{{ end }}
-	{{- end -}}
-{{- end -}}
+	{{- else }}
+		{{- $postPermalink := .Permalink }}
+			{{ range .Params.photos }}
+			<li>
+				<a href="{{ $postPermalink }}">
+					<img src="{{ . }}" loading="lazy" />
+				</a>
+			</li>
+		{{ end }}
+	{{- end }}
+{{- end }}
 </ul>
 <script>
 	const elementsToResize = new Set();

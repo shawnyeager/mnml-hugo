@@ -1,5 +1,5 @@
 {
-	"version": "2.4.6",
+	"version": "2.5.0",
 	"title": "mnml",
 	"description": "A minimal, simple and clean Micro.blog theme.",
 	"fields": [
@@ -16,6 +16,11 @@
 		  "placeholder": "@username@mastodon.instance"
 		},
 		{
+			"field": "params.use_short_date",
+			"label": "Use a short date format",
+			"type": "boolean"
+		},
+		{
 		  "field": "params.narrow_header",
 		  "label": "Use a narrow site header",
 		  "type": "boolean"
@@ -29,19 +34,13 @@
 		  "field": "params.custom_avatar",
 		  "label": "Custom header icon",
 		  "type": "string",
-		  "placeholder": "Enter a full URL to an image."
+		  "placeholder": "Enter a full URL to an image. Ignored if avatar is hidden."
 		},
 		{
 		  "field": "params.home_category",
 		  "label": "Home page categories",
 		  "type": "string",
 		  "placeholder": "Home page categories. Leave blank for all posts."
-		},
-		{
-		  "field": "params.photos_category",
-		  "label": "Photos category",
-		  "type": "string",
-		  "placeholder": "Set a single photo category. Leave blank for all images."
 		},
 		{
 		  "field": "params.show_full_post",
@@ -54,24 +53,36 @@
 		  "type": "boolean"
 		},
 		{
+		  "field": "params.photos_category",
+		  "label": "Photos category",
+		  "type": "string",
+		  "placeholder": "Set a single photo category. Leave blank for all images."
+		},
+		{
+		  "field": "params.all_formats",
+		  "label": "Display all image formats (jpg, png, etc.).",
+		  "type": "boolean"
+		},
+		{
 		  "field": "params.masonry_layout",
 		  "label": "Use photos masonry layout",
 		  "type": "boolean"
 		},
 		{
 		  "field": "params.full_width_photos",
-		  "label": "Show a wider photos page",
+		  "label": "Use a wider photos page",
 		  "type": "boolean"
-		},
-		{
-			"field": "params.use_short_date",
-			"label": "Use a short date format",
-			"type": "boolean"
 		},
 		{
 		  "field": "params.show_categories",
 		  "label": "Show categories on archives page",
 		  "type": "boolean"
+		},
+		{
+			"field": "params.search_results",
+			"label": "Number of search results",
+			"placeholder": "Defaults to 5 if left blank.",
+			"type": "string"
 		},
 		{
 		  "field": "params.hide_credit",
