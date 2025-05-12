@@ -1,5 +1,6 @@
 <ul class="masonry-grid">
 {{- $allFormats := .Site.Params.all_formats }}
+{{- $singleImage := .Site.Params.single_image | default false }}
 {{- $category := index .Site.Taxonomies.categories (lower .Site.Params.photos_category) }}
 {{- $list := slice }}
 {{- if $category }}
@@ -17,22 +18,46 @@
 {{ range $index, $value := $list }}
 	{{- if $allFormats }}
 		{{- $postPermalink := .Permalink }}
-		{{ range .Params.images }}
+		{{- if $singleImage }}
+			{{- with (first 1 .Params.images) }}
+				{{ range . }}
+				<li>
+					<a href="{{ $postPermalink }}">
+						<img src="{{ . }}" loading="lazy" />
+					</a>
+				</li>
+				{{ end }}
+			{{- end }}
+		{{- else }}
+			{{ range .Params.images }}
 			<li>
 				<a href="{{ $postPermalink }}">
 					<img src="{{ . }}" loading="lazy" />
 				</a>
 			</li>
-		{{ end }}
+			{{ end }}
+		{{- end }}
 	{{- else }}
 		{{- $postPermalink := .Permalink }}
+		{{- if $singleImage }}
+			{{- with (first 1 .Params.photos) }}
+				{{ range . }}
+				<li>
+					<a href="{{ $postPermalink }}">
+						<img src="{{ . }}" loading="lazy" />
+					</a>
+				</li>
+				{{ end }}
+			{{- end }}
+		{{- else }}
 			{{ range .Params.photos }}
 			<li>
 				<a href="{{ $postPermalink }}">
 					<img src="{{ . }}" loading="lazy" />
 				</a>
 			</li>
-		{{ end }}
+			{{ end }}
+		{{- end }}
 	{{- end }}
 {{- end }}
 </ul>
