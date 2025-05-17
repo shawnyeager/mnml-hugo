@@ -91,6 +91,7 @@ body {
   color: var(--text);
   font-kerning: normal;
   font-size: 1.8rem;
+  font-weight: var(--font-weight-normal);
   line-height: 1.5666;
   width: 100%;
   margin: 0;
@@ -260,10 +261,10 @@ mark {
 
 input[type="button"],
 input[type="submit"] {
-  background-color: var(--accent-2);
+  background-color: var(--text);
   border-radius: var(--border-radius);
   border: none;
-  color: var(--text);
+  color: var(--background);
   cursor: pointer;
   margin: 4px 1px;
   padding: 6px 12px;
@@ -275,7 +276,7 @@ input[type="button"]:active,
 input[type="submit"]:hover,
 input[type="submit"]:active {
   background: var(--link);
-  color: #fff;
+  color: var(--background);
 }
 
 input[type="date"],
@@ -334,7 +335,7 @@ main {
 
 .site-title {
   font-size: 1.6rem;
-  font-weight: 700;
+  font-weight: var(--font-weight-bold);
 }
 
 .site-title a {
@@ -484,7 +485,7 @@ a.category:active {
 
 .archive-range {
   border-bottom: 1px solid var(--accent-2);
-  font-weight: 700;
+  font-weight: var(--font-weight-bold);
   margin-bottom: 4rem;
   padding-bottom: 0.5rem;
 }
@@ -686,7 +687,6 @@ main.archive .entry p {
   padding: 0;
 }
 
-/* Search stuff */
 #search {
     display: none;
 }
@@ -695,16 +695,6 @@ main.archive .entry p {
     display: none;
     z-index: 10 !important;
 }
-
-/* .field {
-    width: 100%;
-    height: 34px;
-    border: 2px solid #eee;
-    padding-left: 10px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    border-radius: 11px;
-} */
 
 #guestbooks___guestbook-made-with {
   color: var(--accent-3);
@@ -754,7 +744,7 @@ footer p {
   box-shadow: none;
   cursor: pointer;
   height: 3.6rem;
-  opacity: 50%;
+  opacity: 70%;
   padding: 0 1rem;
   position: fixed;
   right: 1.75rem;
