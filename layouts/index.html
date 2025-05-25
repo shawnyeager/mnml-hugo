@@ -13,7 +13,7 @@
     {{- end }}
     {{- $paginator := .Paginate $pages (index .Site.Params "archive-paginate" | default 20) }}
     {{- range $paginator.Pages  }}
-    <article class="h-entry">
+    <article class="h-entry {{ range $index, $category := .Params.categories }}{{ if gt $index 0 }} {{ end }}{{ $category | lower | urlize }}{{ end }}">
     {{- if .Title }}
         <h2 class="post-title"><a href="{{ .Permalink }}" class="u-url">{{ .Title | safeHTML }}</a></h2>
         <p class="post-date">

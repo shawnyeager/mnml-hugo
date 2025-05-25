@@ -64,6 +64,7 @@ h5,
 h6,
 b,
 strong,
+dt,
 th {
   font-weight: var(--font-weight-bold);
 }
@@ -174,8 +175,18 @@ sup {
 }
 
 figure {
-  font-size: 1.4rem;
+  padding: 0;
+  margin: 0;
+}
+
+figcaption {
+  background: var(--accent-1);
+  border-radius: var(--border-radius);
   color: var(--accent-3);
+  display: block;
+  font-size: 1.4rem;
+  margin: -2rem 0 2rem;
+  padding: .5rem;
   text-align: center;
 }
 

@@ -1,6 +1,6 @@
 {{- define "main" }}
 <main>
-    <article class="h-entry">
+    <article class="h-entry {{ range $index, $category := .Params.categories }}{{ if gt $index 0 }} {{ end }}{{ $category | lower | urlize }}{{ end }}">
         {{- if .Title }}
         <h1 class="post-title">{{ .Title | safeHTML }}</h1>
         <p class="post-date">
