@@ -15,8 +15,12 @@
     {{- range $paginator.Pages  }}
     <article class="h-entry">
     {{- if .Title }}
-        <h2 class="post-title"><a href="{{ .Permalink }}" class="u-url">{{ .Title }}</a></h2>
-        <p class="post-date">{{- if .Site.Params.use_short_date }}{{ .Date | time.Format ":date_short" }}{{- else }}{{ .Date | time.Format ":date_full" }}{{- end }}</p>
+        <h2 class="post-title"><a href="{{ .Permalink }}" class="u-url">{{ .Title | safeHTML }}</a></h2>
+        <p class="post-date">
+            <time class="dt-published" datetime="{{ .Date.Format "2006-01-02 15:04:05 -0700" }}">
+                {{- if .Site.Params.use_short_date }}{{ .Date | time.Format ":date_short" }}{{- else }}{{ .Date | time.Format ":date_full" }}{{- end }}
+            </time>
+        </p>
         {{- if .Site.Params.show_full_post }}
         {{ .Content }}
         {{- else }}
@@ -24,7 +28,11 @@
         <p><a href="{{ .Permalink }}" class="u-url">{{ T "Continue reading" }} →</a></p>
         {{- end }}
     {{- else if in .RawContent "<!--more-->"}}
-        <p class="post-date btm-margin"><a href="{{ .Permalink }}" class="u-url">{{- if .Site.Params.use_short_date }}{{ .Date | time.Format ":date_short" }}{{- else }}{{ .Date | time.Format ":date_full" }}{{- end }} →</a></p>
+        <p class="post-date btm-margin">
+            <time class="dt-published" datetime="{{ .Date.Format "2006-01-02 15:04:05 -0700" }}">
+                <a href="{{ .Permalink }}" class="u-url">{{- if .Site.Params.use_short_date }}{{ .Date | time.Format ":date_short" }}{{- else }}{{ .Date | time.Format ":date_full" }}{{- end }} →</a>
+            </time>
+        </p>
         {{- if .Site.Params.show_full_post }}
         {{ .Content }}
         {{- else }}
@@ -34,7 +42,11 @@
         {{- end }}
         {{- end }}
     {{- else }}
-        <p class="post-date btm-margin"><a href="{{ .Permalink }}" class="u-url">{{- if .Site.Params.use_short_date }}{{ .Date | time.Format ":date_short" }}{{- else }}{{ .Date | time.Format ":date_full" }}{{- end }} →</a></p>
+        <p class="post-date btm-margin">
+            <time class="dt-published" datetime="{{ .Date.Format "2006-01-02 15:04:05 -0700" }}">
+                <a href="{{ .Permalink }}" class="u-url">{{- if .Site.Params.use_short_date }}{{ .Date | time.Format ":date_short" }}{{- else }}{{ .Date | time.Format ":date_full" }}{{- end }} →</a>
+            </time>
+        </p>
         {{ .Content }}
     {{- end }}
     </article>

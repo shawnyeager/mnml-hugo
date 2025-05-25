@@ -553,7 +553,7 @@ a.category:active {
 
 .microblog_fullname {
   display: inline-block;
-  font-size: 1.7rem;
+  font-size: 1.6rem;
   font-weight: var(--font-weight-bold);
   line-height: 30px;
   margin-left: 6px;
@@ -578,7 +578,7 @@ a.category:active {
 .microblog_time a,
 .microblog_time a:visited {
   color: var(--accent-3);
-  font-size: 1.7rem;
+  font-size: 1.6rem;
   text-decoration: none;
 }
 
@@ -602,7 +602,7 @@ a.category:active {
 }
 
 .microblog_reply_signin {
-  font-size: 1.7rem;
+  font-size: 1.6rem;
   margin-top: 0.75rem;
 }
 
@@ -633,7 +633,7 @@ a.category:active {
 }
 
 .microblog_reply_button {
-  font-size: 1.7rem;
+  font-size: 1.6rem;
   margin-bottom: 0.75rem;
   margin-top: -0.75rem;
   text-align: right;

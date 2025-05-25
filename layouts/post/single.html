@@ -2,10 +2,18 @@
 <main>
     <article class="h-entry">
         {{- if .Title }}
-        <h1 class="post-title p-name">{{ .Title }}</h1>
-        <p class="post-date">{{- if .Site.Params.use_short_date }}{{ .Date | time.Format ":date_short" }}{{- else }}{{ .Date | time.Format ":date_full" }}{{- end }}</p>
+        <h1 class="post-title">{{ .Title | safeHTML }}</h1>
+        <p class="post-date">
+            <time class="dt-published" datetime="{{ .Date.Format "2006-01-02 15:04:05 -0700" }}">
+                {{- if .Site.Params.use_short_date }}{{ .Date | time.Format ":date_short" }}{{- else }}{{ .Date | time.Format ":date_full" }}{{- end }}
+            </time>
+        </p>
         {{- else }}
-        <p class="post-date btm-margin">{{- if .Site.Params.use_short_date }}{{ .Date | time.Format ":date_short" }}{{- else }}{{ .Date | time.Format ":date_full" }}{{- end }}</p>
+        <p class="post-date btm-margin">
+            <time class="dt-published" datetime="{{ .Date.Format "2006-01-02 15:04:05 -0700" }}">
+                {{- if .Site.Params.use_short_date }}{{ .Date | time.Format ":date_short" }}{{- else }}{{ .Date | time.Format ":date_full" }}{{- end }}
+            </time>
+        </p>
         {{- end }}
         {{- with .Params.audio }}
         <script type="text/javascript" src="https://micro.blog/narration.js?url={{ . }}"></script>
