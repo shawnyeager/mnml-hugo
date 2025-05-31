@@ -42,6 +42,7 @@ Thank you to the following for their **mnml** localization contributions:
 
 - Swedish: [@robertbirming](https://github.com/robertbirming)
 - Ukrainian & Russian: [@luxury-format](https://github.com/luxury-format)
+- Chinese (Traditional): [@bobbytung](https://github.com/bobbytung)
 
 ### Support
 
