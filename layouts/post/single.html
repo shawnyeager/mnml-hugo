@@ -21,13 +21,14 @@
         <div class="e-content">
             {{ .Content }}
         </div>
-        {{- if isset .Params "categories" }}
+        {{- if .Params.categories }}
+        {{- with .GetTerms "categories" }}
         <p class="categories">
-        {{- range $index, $category := .Params.categories }}
-            {{- $href := printf "/categories/%s" (urlize $category) | absURL }}
-            <a href="{{ $href }}" class="category">{{ $category }}</a>
-        {{- end }}
+            {{- range . }}
+            <a href="{{ .RelPermalink }}" class="category">{{ .LinkTitle }}</a>
+            {{- end }}
         </p>
+        {{- end }}
         {{- end }}
         {{- if or (templates.Exists "partials/reply-by-email.html") (templates.Exists "partials/conversation-link.html") (templates.Exists "partials/reply-on-mastodon.html") (templates.Exists "partials/tinylytics.html") }}
         <ul class="reply-buttons">
