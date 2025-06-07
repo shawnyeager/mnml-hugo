@@ -3,8 +3,8 @@
 Name: Jim Mitchell
 Web: https://jimmitchell.org
 Contact: hello [at] jimmitchell [dot] org
-Micro.blog: @jimmitchell
-Mastodon: https://jimmitchell.org/@jim
+Micro.blog: @jim
+Mastodon: https://micro.blog/jim?remote_follow=1
 Github: https://github.com/jimmitchell
 From: Huntington Beach, CA, USA
 
