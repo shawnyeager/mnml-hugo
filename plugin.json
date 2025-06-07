@@ -1,5 +1,5 @@
 {
-	"version": "2.5.6",
+	"version": "2.5.7",
 	"title": "mnml",
 	"description": "A minimal, simple and clean Micro.blog theme.",
 	"fields": [
@@ -7,7 +7,7 @@
 			"field": "defaultContentLanguage",
 			"label": "Site Language",
 			"type": "string",
-			"placeholder": "Preferred language code (e.g. de, fr, es)."
+			"placeholder": "Preferred language code (e.g. en, de, fr, es)."
 		},
 		{
 		  "field": "params.fediverse_creator",
@@ -32,7 +32,7 @@
 		},
 		{
 		  "field": "params.custom_avatar",
-		  "label": "Custom header icon",
+		  "label": "Custom avatar",
 		  "type": "string",
 		  "placeholder": "Enter a full URL to an image. Ignored if avatar is hidden."
 		},
@@ -45,6 +45,11 @@
 		{
 		  "field": "params.show_full_post",
 		  "label": "Show full posts on homepage",
+		  "type": "boolean"
+		},
+		{
+		  "field": "params.show_read_time",
+		  "label": "Show read time on titled posts",
 		  "type": "boolean"
 		},
 		{
@@ -65,7 +70,7 @@
 		},
 		{
 		  "field": "params.all_formats",
-		  "label": "Display all image formats (jpg, png, etc.).",
+		  "label": "Display all image formats (jpg, png, webp, etc.).",
 		  "type": "boolean"
 		},
 		{
@@ -88,6 +93,11 @@
 			"label": "Number of search results",
 			"placeholder": "Defaults to 5 if left blank.",
 			"type": "string"
+		},
+		{
+			"field": "params.footer_rss",
+			"label": "Add a RSS link in the footer",
+			"type": "boolean"
 		},
 		{
 		  "field": "params.hide_credit",

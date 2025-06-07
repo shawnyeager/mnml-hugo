@@ -452,6 +452,11 @@ single article {
   font-size: 1.6rem;
 }
 
+.sep {
+  color: var(--accent-3);
+  margin: 0 .25rem;
+}
+
 article img,
 article video {
   border-radius: 1rem;
