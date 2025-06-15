@@ -19,7 +19,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #282c35;
+    --background: #20232a;
     --text: #f7f7f7;
     --link: #45c8f7;
     --link-hover: #ffffff;
@@ -131,6 +131,15 @@ a:active {
   text-decoration: underline;
 }
 
+a:link,
+a:visited,
+a:hover,
+a:active,
+.category-list button:hover,
+.category-list button:active {
+  transition: all 0.15s ease-in-out;
+}
+
 h1,
 h2,
 h3,
@@ -188,6 +197,10 @@ figcaption {
   margin: -2rem 0 3rem;
   padding: .5rem 1.5rem;
   text-align: center;
+}
+
+figure img + img {
+  margin-top: -2rem;
 }
 
 hr {
@@ -425,6 +438,7 @@ single article {
 
 .page-title,
 .post-title {
+  font-size: 2.4rem;
   margin-bottom: 3rem;
   margin-top: 1rem;
 }
@@ -729,6 +743,10 @@ main.archive .entry p {
   border-radius: var(--border-radius);
   margin: 1.5rem 0;
   padding: 0.1rem 3rem 2rem;
+}
+
+#guestbooks___challenge-answer-container br {
+  display: none;
 }
 
 footer {
