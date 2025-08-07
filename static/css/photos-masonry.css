@@ -1,11 +1,11 @@
 main.photos {
   margin: 0 auto;
-  max-width: var(--header-width);
+  max-width: var(--site-width);
 }
 
 main.photos-wide {
   margin: 0 auto;
-  max-width: var(--photos-wide);
+  max-width: var(--header-width);
 }
 
 .masonry-grid * {
@@ -68,21 +68,21 @@ main.photos-wide .masonry-grid {
   transition: ease-in-out 0.25s;
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1000px) {
   main.photos .masonry-grid,
   main.photos-wide .masonry-grid {
     column-count: 3;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   main.photos .masonry-grid,
   main.photos-wide .masonry-grid {
     column-count: 2;
   }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 480px) {
   main.photos .masonry-grid,
   main.photos-wide .masonry-grid {
     column-count: 1;

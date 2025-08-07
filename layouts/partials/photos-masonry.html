@@ -1,4 +1,3 @@
-<ul class="masonry-grid">
 {{- $allFormats := .Site.Params.all_formats }}
 {{- $singleImage := .Site.Params.single_image | default false }}
 {{- $category := index .Site.Taxonomies.categories (lower .Site.Params.photos_category) }}
@@ -15,7 +14,21 @@
 	{{- $list = where .Site.Pages ".Params.photos" "!=" nil }}
 {{- end }}
 {{- $len := (len $list) }}
-{{ range $index, $value := $list }}
+
+{{- $currentYearMonth := "" }}
+{{- range sort $list "Date" "desc" }}
+	{{- $year := .Date.Format "2006" }}
+	{{- $month := .Date.Format "01" }}
+	{{- $yearMonth := printf "%s-%s" $year $month }}
+	{{- $monthName := .Date.Format "January" }}
+	{{- if ne $currentYearMonth $yearMonth }}
+		{{- if ne $currentYearMonth "" }}
+		</ul>
+		{{- end }}
+		<h3 class="archive-range" data-year="{{ $year }}" data-year-month="{{ $yearMonth }}">{{ $monthName }} {{ $year }}</h3>
+		<ul class="masonry-grid">
+		{{- $currentYearMonth = $yearMonth }}
+	{{- end }}
 	{{- if $allFormats }}
 		{{- $postPermalink := .Permalink }}
 		{{- if $singleImage }}

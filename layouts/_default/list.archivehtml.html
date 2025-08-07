@@ -13,9 +13,9 @@
 		</div>
 		{{- end }}
 		{{- $posts := where  .Site.RegularPages "Type" "post" }}
-		{{- $grouped := $posts.GroupByDate "2006" }}
+		{{- $grouped := $posts.GroupByDate "2006-01" }}
 		{{- range $grouped }}
-			<h3 class="archive-range">{{ .Key }}</h3>
+			<h3 class="archive-range">{{ (.Key | printf "%s-01") | dateFormat "January 2006" }}</h3>
 			{{- range .Pages }}
 			<p class="post-date">
 				<a href="{{ .Permalink }}">{{- if .Site.Params.use_short_date }}{{ .Date | time.Format ":date_short" }}{{- else }}{{ .Date | time.Format ":date_full" }}{{- end }} →</a>

@@ -40,6 +40,9 @@
   {{- else }}
   <link href="{{ "css/photos-grid.css" | relURL }}?{{ .Site.Params.theme_seconds }}"rel="preload stylesheet" as="style">
   {{- end }}
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#20232a" media="(prefers-color-scheme: dark)" />
   {{- if .Site.Params.narrow_header }}
   <style>.site-nav {max-width:var(--site-width)}</style>
   {{- end }}
