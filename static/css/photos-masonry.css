@@ -68,21 +68,14 @@ main.photos-wide .masonry-grid {
   transition: ease-in-out 0.25s;
 }
 
-@media (max-width: 1000px) {
-  main.photos .masonry-grid,
-  main.photos-wide .masonry-grid {
-    column-count: 3;
-  }
-}
-
-@media (max-width: 768px) {
+@media (max-width: 600px) {
   main.photos .masonry-grid,
   main.photos-wide .masonry-grid {
     column-count: 2;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 375px) {
   main.photos .masonry-grid,
   main.photos-wide .masonry-grid {
     column-count: 1;
