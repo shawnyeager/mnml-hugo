@@ -43,7 +43,6 @@ img,
 picture,
 svg,
 video {
-  display: block;
   max-width: 100%;
 }
 
@@ -60,8 +59,11 @@ h3,
 h4,
 h5,
 h6,
-p {
-  overflow-wrap: break-word;
+b,
+strong,
+dt,
+th {
+  font-weight: var(--font-weight-bold);
 }
 
 h1,
@@ -70,11 +72,8 @@ h3,
 h4,
 h5,
 h6,
-b,
-strong,
-dt,
-th {
-  font-weight: var(--font-weight-bold);
+p {
+  overflow-wrap: break-word;
 }
 
 #root,
@@ -105,14 +104,9 @@ body {
   width: 100%;
   margin: 0;
   text-rendering: geometricPrecision;
-  -moz-font-feature-settings: "kern" 1;
-  -ms-font-feature-settings: "kern" 1;
-  -o-font-feature-settings: "kern" 1;
-  -webkit-font-feature-settings: "kern" 1;
   font-feature-settings: "kern" 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  -ms-word-wrap: break-word;
   word-wrap: break-word;
 }
 
@@ -145,7 +139,7 @@ a:hover,
 a:active,
 .category-list button:hover,
 .category-list button:active {
-  transition: all 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out, background 0.15s ease-in-out, border 0.15s ease-in-out;
 }
 
 h1,
@@ -192,8 +186,8 @@ sup {
 }
 
 figure {
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
 figcaption {
@@ -256,11 +250,9 @@ pre {
   color: #f8f8f8;
   line-height: 1.5;
   margin: 3rem 0;
-  overflow-wrap: normal;
-  overflow-x: scroll;
+  overflow-x: auto;
   padding: 2rem;
   white-space: pre;
-  word-wrap: normal;
 }
 
 code {
@@ -324,7 +316,6 @@ textarea {
   border: 1px solid var(--accent-2);
   color: var(--text);
   font-size: 1.8rem;
-  height: auto;
   margin: 4px 1px;
   padding: 8px 12px;
   width: 100%;
@@ -447,8 +438,7 @@ single article {
 .page-title,
 .post-title {
   font-size: 2.4rem;
-  margin-bottom: 3rem;
-  margin-top: 1rem;
+  margin: 1rem 0 3rem;
 }
 
 .btm-margin {
@@ -482,7 +472,6 @@ single article {
 article img,
 article video {
   border-radius: 1rem;
-  height: auto;
   margin: 3rem auto;
   max-width: 100%;
 }
@@ -493,7 +482,8 @@ article ol li {
 }
 
 a.category:link,
-a.category:visited {
+a.category:visited,
+.category-list button {
   background-color: var(--accent-1);
   border-radius: var(--border-radius);
   border: 1px solid var(--accent-1);
@@ -552,12 +542,18 @@ a.category:active {
   color: var(--background);
 }
 
+.microblog-category-intro {
+  border-bottom: 1px solid var(--accent-2);
+  margin-bottom: 4rem;
+  padding-bottom: 2rem;
+}
+
 .microblog_narration_button {
   background: var(--accent-1);
   border-radius: var(--border-radius);
   border: 1px solid var(--accent-2);
   display: inline-block;
-  padding: 0px 10px 3px 6px;
+  padding: 0 10px 3px 6px;
 }
 
 .microblog_narration_button:hover,
@@ -760,9 +756,9 @@ main.archive .entry p {
 footer {
   color: var(--accent-3);
   font-size: 1.6rem;
-  margin: 0 auto 2rem auto;
+  margin: 0 auto 2rem;
   max-width: var(--site-width);
-  padding: 0.5rem 2rem 3rem 2rem;
+  padding: 0.5rem 2rem 3rem;
   text-align: center;
 }
 
@@ -800,6 +796,7 @@ footer p {
 }
 
 .to-top svg {
+  display: block;
   fill: var(--background);
 }
 
@@ -885,7 +882,7 @@ a.tinylytics_webring {
   align-items: center;
   justify-content: center;
   line-height: 0;
-  margin: 0px -3px !important;
+  margin: 0 -3px !important;
 }
 
 .microblog_collection img {
@@ -898,13 +895,11 @@ a.tinylytics_webring {
   object-fit: cover;
   padding: 0;
   width: 25% !important;
+  transition: filter 0.25s ease-in-out;
 }
 
 .microblog_collection img:hover {
-  -moz-filter: brightness(70%);
-  -webkit-filter: brightness(70%);
   filter: brightness(70%);
-  transition: ease-in-out 0.25s;
 }
 
 .microblog_lightbox_nav {
@@ -986,19 +981,11 @@ img.bookshelf__cover {
   }
 
   .hamburger.active .bar:nth-child(1) {
-    -webkit-transform: translateY(5px) rotate(45deg);
     transform: translateY(5px) rotate(45deg);
   }
 
   .hamburger.active .bar:nth-child(3) {
-    -webkit-transform: translateY(-5px) rotate(-45deg);
     transform: translateY(-5px) rotate(-45deg);
-  }
-
-  .microblog_collection img {
-    border: 3px solid transparent;
-    height: 180px !important;
-    width: 50% !important;
   }
 
   .microblog_collection img {
