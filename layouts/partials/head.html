@@ -10,22 +10,22 @@
   <link rel="preload" href="/fonts/GT-W-Bold-Oblique.woff2" as="font" type="font/woff2" crossorigin="anonymous"/>
   <meta name="twitter:card" content="summary">
   {{- with .Title }}
-  <meta name="twitter:title" content="{{ . }}">
-  <meta property="og:title" content="{{ . }}">
+  <meta name="twitter:title" content="{{ . | safeHTML }}">
+  <meta property="og:title" content="{{ . | safeHTML }}">
   {{- else }}
-  <meta name="twitter:title" content="{{ .Site.Title }}">
-  <meta property="og:title" content="{{ .Site.Title }}">
+  <meta name="twitter:title" content="{{ .Site.Title | safeHTML }}">
+  <meta property="og:title" content="{{ .Site.Title | safeHTML }}">
   {{- end }}
   {{- if .IsHome }}
-  <meta name="twitter:description" content="{{ .Site.Params.itunes_description | truncate 125 }}">
-  <meta name="og:description" content="{{ .Site.Params.itunes_description | truncate 60 }}">
-  <meta name="description" content="{{ .Site.Params.itunes_description }}">
+  <meta name="twitter:description" content="{{ .Site.Params.itunes_description | truncate 125 | safeHTML }}">
+  <meta name="og:description" content="{{ .Site.Params.itunes_description | truncate 60 | safeHTML }}">
+  <meta name="description" content="{{ .Site.Params.itunes_description | safeHTML }}">
   <meta name="twitter:image" content="{{ .Site.Author.avatar }}">
   <meta property="og:image" content="{{ .Site.Author.avatar }}">
   {{- else }}
-  <meta name="twitter:description" content="{{ .Summary | truncate 60 }}">
-  <meta name="og:description" content="{{ .Summary | truncate 60 }}">
-  <meta name="description" content="{{ (or .Summary .Site.Params.itunes_description) }}">
+  <meta name="twitter:description" content="{{ .Summary | truncate 60 | safeHTML }}">
+  <meta name="og:description" content="{{ .Summary | truncate 60 | safeHTML }}">
+  <meta name="description" content="{{ (or .Summary .Site.Params.itunes_description) | safeHTML }}">
   {{- end }}
   {{- $creator := .Site.Params.fediverse_creator }}
   {{- if $creator }}
