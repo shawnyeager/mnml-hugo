@@ -19,12 +19,12 @@ A clean and simple minimalist Micro.blog theme.
 - Show all image formats on photos page.
 - Wide or narrow photo page layout setting.
 - Use a custom site icon of your choosing.
-- Hide the site icon altogether if you choose.
+- Hide the site avatar altogether if you choose.
 - Built-in Search shortcode. See instructions below.
 - [Fediverse Creator](https://blog.joinmastodon.org/2024/07/highlighting-journalism-on-mastodon/) tag support.
 - Pagination on all post related pages.
 
-See the theme in action at [mnml.micro.blog](https://mnml.micro.blog).
+See the theme in action at [jimmitchell.org](https://jimmitchell.org).
 
 ### Adding a Search Page
 
@@ -34,7 +34,7 @@ See the theme in action at [mnml.micro.blog](https://mnml.micro.blog).
 2. In the page body, add the ``{{< search >}}`` shortcode.
 3. Visit your new search page and try it out.
 
-Note: Search results default to 5 until you set your own value in the **mnml** plugin settings page.
+Search results default to 5 until you set your own value in the **mnml** plugin settings page.
 
 ### Special Thanks
 

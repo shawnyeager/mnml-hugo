@@ -483,6 +483,10 @@ article ol li {
   margin-bottom: 5px;
 }
 
+p.categories {
+  margin-top: 3rem;
+}
+
 a.category:link,
 a.category:visited,
 .category-list button {
@@ -491,7 +495,7 @@ a.category:visited,
   border: 1px solid var(--accent-1);
   color: var(--accent-3);
   display: inline-block;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   line-height: 1.6;
   margin: 0 1px 5px 0;
   padding: 0 8px;
