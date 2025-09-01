@@ -1,5 +1,5 @@
 {
-	"version": "2.6.8",
+	"version": "2.7.0",
 	"title": "mnml",
 	"description": "A minimal, simple and clean Micro.blog theme.",
 	"fields": [
@@ -35,6 +35,12 @@
 		  "label": "Custom avatar",
 		  "type": "string",
 		  "placeholder": "Enter a full URL to an image. Ignored if avatar is hidden."
+		},
+		{
+		  "field": "params.pinned_category",
+		  "label": "Pinned post category",
+		  "type": "string",
+		  "placeholder": "Category for the latest pinned post. Leave blank otherwise."
 		},
 		{
 		  "field": "params.home_category",

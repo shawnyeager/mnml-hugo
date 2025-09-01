@@ -152,21 +152,21 @@ h6 {
 }
 
 h1 {
-  font-size: 2.4rem;
-}
-
-h2 {
   font-size: 2.2rem;
 }
 
-h3 {
+h2 {
   font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.8rem;
 }
 
 h4,
 h5,
 h6 {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
 }
 
 i,
@@ -435,10 +435,37 @@ single article {
   padding-bottom: 0;
 }
 
+.pinned {
+  background: var(--accent-1);
+  border: 1px solid var(--accent-2);
+  border-radius: var(--border-radius);
+  margin-left: -2rem;
+  margin-right: -2rem;
+  width: calc(100% + 4rem);
+  padding: 1.5rem 2rem 0 2rem;
+  position: relative;
+}
+
+.pinned-badge {
+  background: var(--link);
+  border-radius: 3rem;
+  color: var(--background);
+  font-size: 1.6rem;
+  position: absolute;
+  top: -1.5rem;
+  left: 0.8rem;
+  margin: 0;
+  padding: 0.1rem 1.2rem;
+}
+
 .page-title,
 .post-title {
-  font-size: 2.4rem;
+  font-size: 2.2rem;
   margin: 1rem 0 3rem;
+}
+
+.pinned .post-title {
+  margin-top: 2.2rem;
 }
 
 .btm-margin {
@@ -996,6 +1023,12 @@ img.bookshelf__cover {
   .microblog_collection img {
     height: 110px !important;
     width: 33% !important;
+  }
+  
+  .pinned {
+    margin-left: -1rem;
+    margin-right: -1rem;
+    width: calc(100% + 2rem);
   }
 
   .to-top {
