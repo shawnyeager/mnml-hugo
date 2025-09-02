@@ -441,6 +441,7 @@ single article {
   border-radius: var(--border-radius);
   margin-left: -2rem;
   margin-right: -2rem;
+  margin-top: 2rem;
   width: calc(100% + 4rem);
   padding: 1.5rem 2rem 0 2rem;
   position: relative;
