@@ -5,7 +5,7 @@
   --font-weight-normal: 400;
   --font-weight-bold: 700;
   --header-width: 94rem;
-  --site-width: 64rem;
+  --site-width: 68rem;
   --photos-wide: 120rem;
   --border-radius: 0.6rem;
 }
@@ -18,7 +18,7 @@
     --link: #0d88d8;
     --link-hover: #101115;
     --accent-1: #f6f6f6;
-    --accent-2: #d4d4d6;
+    --accent-2: #e2e2e4;
     --accent-3: #84868b;
     --highlight: #e3e3e6;
   }
@@ -86,6 +86,8 @@ html {
   font-family: var(--sans-serif-font);
   font-size: 10px;
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 *,
@@ -528,6 +530,11 @@ a.category:visited,
   margin: 0 1px 5px 0;
   padding: 0 8px;
   text-decoration: none;
+}
+
+a.category:link,
+a.category:visited {
+  font-size: 1.4rem;
 }
 
 a.category:hover,

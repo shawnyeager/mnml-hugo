@@ -1,5 +1,5 @@
 {
-	"version": "2.7.1",
+	"version": "2.7.2",
 	"title": "mnml",
 	"description": "A minimal, simple and clean Micro.blog theme.",
 	"fields": [
@@ -104,6 +104,11 @@
 			"label": "Number of search results",
 			"placeholder": "Defaults to 5 if left blank.",
 			"type": "string"
+		},
+		{
+			"field": "params.hide_copyright",
+			"label": "Hide the footer copyright",
+			"type": "boolean"
 		},
 		{
 			"field": "params.footer_rss",
