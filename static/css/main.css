@@ -526,19 +526,20 @@ a.category:visited,
   color: var(--accent-3);
   display: inline-block;
   font-size: 1.6rem;
-  line-height: 1.6;
+  line-height: 1.4;
   margin: 0 1px 5px 0;
   padding: 0 8px;
   text-decoration: none;
 }
 
-a.category:link,
-a.category:visited {
-  font-size: 1.4rem;
+.category-list button {
+  font-size: 1.6rem;
 }
 
 a.category:hover,
-a.category:active {
+a.category:active,
+.category-list button:hover,
+.category-list button:active {
   background: var(--link);
   border: 1px solid var(--link);
   color: var(--background);
@@ -561,25 +562,6 @@ a.category:active {
 
 .category-list {
   margin: -1rem 0 6rem;
-}
-
-.category-list button {
-  background-color: var(--accent-1);
-  border-radius: var(--border-radius);
-  border: 1px solid var(--accent-2);
-  color: var(--accent-3);
-  display: inline-block;
-  line-height: 1.6;
-  margin: 0 1px 5px 0;
-  padding: 0 8px;
-  text-decoration: none;
-}
-
-.category-list button:hover,
-.category-list button:active {
-  background: var(--link);
-  border: 1px solid var(--link);
-  color: var(--background);
 }
 
 .microblog-category-intro {
