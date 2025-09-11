@@ -916,13 +916,13 @@ a.tinylytics_webring {
 
 @media (max-width: 600px) {
   .microblog_collection {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr) !important;
   }
 }
 
 @media (max-width: 375px) {
   .microblog_collection {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(1, 1fr) !important;
   }
 }
 
