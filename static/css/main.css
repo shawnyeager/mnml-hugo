@@ -260,11 +260,7 @@ tbody tr:hover {
   transition: ease-in-out 0.25s;
 }
 
-tbody tr:hover a:link,
-tbody tr:hover a:visited,
-tbody tr:hover a:hover,
-tbody tr:hover a:active,
-tbody tr:hover a:focus {
+tbody tr:hover a {
   color: var(--background);
   text-decoration: underline;
 }
