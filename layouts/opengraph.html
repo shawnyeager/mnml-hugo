@@ -1,0 +1,8 @@
+<div style="background-color: #42444a; padding: 40px;" data-content-background="#42444a">
+{{- if .Title }}
+<b style="font-size:24px;color:#fff;">{{ .Title }}</b>
+{{- else }}
+<b style="font-size: 24px;color:#fff;">{{ .Site.Title }}</b>
+{{- end }}
+<p style="font-size: 18px;color:#fff;">{{ .Summary }}</p>
+</div>

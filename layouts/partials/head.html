@@ -17,15 +17,25 @@
   <meta property="og:title" content="{{ .Site.Title | plainify }}">
   {{- end }}
   {{- if .IsHome }}
-  <meta name="twitter:description" content="{{ .Site.Params.itunes_description | truncate 125 | plainify }}">
-  <meta name="og:description" content="{{ .Site.Params.itunes_description | truncate 60 | plainify }}">
   <meta name="description" content="{{ .Site.Params.itunes_description | plainify }}">
-  <meta name="twitter:image" content="{{ .Site.Author.avatar }}">
-  <meta property="og:image" content="{{ .Site.Author.avatar }}">
+  <meta name="twitter:description" content="{{ .Site.Params.itunes_description | truncate 125 | plainify }}">
+  <meta name="og:description" content="{{ .Site.Params.itunes_description | truncate 65 | plainify }}">
+  
+  {{- if .Params.photos }}  
+  {{- with index .Params.photos 0 }}
+  <meta property="og:image" content="{{ . }}">
+  {{- end }}
   {{- else }}
-  <meta name="twitter:description" content="{{ .Summary | truncate 60 | plainify }}">
-  <meta name="og:description" content="{{ .Summary | truncate 60 | plainify }}">
+  {{- with .Params.opengraph }}  
+  <meta property="og:title" content="{{ .title }}">
+  <meta property="og:image" content="{{ .image }}">
+  {{- end }}
+  {{- end }}
+  
+  {{- else }}
   <meta name="description" content="{{ (or .Summary .Site.Params.itunes_description) | plainify }}">
+  <meta name="twitter:description" content="{{ .Summary | truncate 125 | plainify }}">
+  <meta name="og:description" content="{{ .Summary | truncate 65 | plainify }}">
   {{- end }}
   {{- $creator := .Site.Params.fediverse_creator }}
   {{- if $creator }}
