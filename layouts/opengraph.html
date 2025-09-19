@@ -1,8 +1,4 @@
-<div data-avatar-background="#3d4149" style="background-color:#3d4149;padding:25px;padding-left:0;" data-content-background="#3d4149">
-	{{- if .Title }}
-	<b style="font-size:24px;color:#fff;">{{ .Title }}</b>
-	{{- else }}
-	<b style="font-size: 24px;color:#fff;">{{ .Site.Title }}</b>
-	{{- end }}
-	<p style="font-size: 18px;color:#fff;">{{ .Summary }}</p>
+<div data-avatar-background="#3d4149" style="background-color:#3d4149;padding:20px;line-height: 1.6;" data-content-background="#3d4149"{{ if .Site.Params.custom_avatar }} data-avatar-url="{{ .Site.Params.custom_avatar }}"{{ end }}>
+	<h1 style="font-size:22px;color:#fff;">{{ or .Title .Site.Title }}</h1>
+	<p style="font-size:18px;color:#fff;">{{ or .Summary .Content }}</p>
 </div>
