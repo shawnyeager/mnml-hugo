@@ -1,32 +1,26 @@
 {{ define "main" }}
 <main>
     {{- $allPages := where .Site.Pages.ByDate.Reverse "Type" "post" }}
-    
     {{- $home_categories := slice }}
     {{- if .Site.Params.home_category }}
         {{- range split .Site.Params.home_category "," }}
             {{- $home_categories = $home_categories | append (trim . " ") }}
         {{- end }}
     {{- end }}
-
     {{- $pinnedPost := false }}
     {{- if .Site.Params.pinned_category }}
         {{- $pinnedCategoryPages := where $allPages "Params.categories" "intersect" (slice .Site.Params.pinned_category) }}
         {{- $pinnedPost = first 1 $pinnedCategoryPages }}
     {{- end }}
-
     {{- $pages := $allPages }}
     {{- if $home_categories }}
         {{- $pages = where $allPages "Params.categories" "intersect" $home_categories }}
     {{- end }}
-
     {{- $filteredPages := $pages }}
     {{- if $pinnedPost }}
         {{- $filteredPages = where $pages "Permalink" "not in" (slice (index $pinnedPost 0).Permalink) }}
     {{- end }}
-
     {{- $paginator := .Paginate $filteredPages (index .Site.Params "archive-paginate" | default 20) }}
-
     {{- if and $pinnedPost (eq .Paginator.PageNumber 1) }}
         {{- range first 1 $pinnedPost }}
         <article class="h-entry pinned {{ range $index, $category := .Params.categories }}{{ if gt $index 0 }} {{ end }}{{ $category | lower | urlize }}{{ end }}">
@@ -35,13 +29,11 @@
         </article>
         {{- end }}
     {{- end }}
-
     {{- range $paginator.Pages  }}
     <article class="h-entry {{ range $index, $category := .Params.categories }}{{ if gt $index 0 }} {{ end }}{{ $category | lower | urlize }}{{ end }}">
         {{- partial "post-content.html" . }}
     </article>
     {{- end }}
-
     {{- if or ($paginator.HasNext) ($paginator.HasPrev) }}
     <nav class="main-nav">
         <ul>

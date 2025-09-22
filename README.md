@@ -4,11 +4,12 @@
 
 A clean and simple minimalist Micro.blog theme.
 
-### Key Features
+## Key Features
 
 - Localized for different languages.
 - System display mode aware (light and dark).
 - Mobile responsive.
+- Featured post category setting.
 - Custom home page category setting.
 - Multiple, comma-separated home page categories are supported.
 - Choose between a wider or narrower site header.
@@ -24,9 +25,9 @@ A clean and simple minimalist Micro.blog theme.
 - [Fediverse Creator](https://blog.joinmastodon.org/2024/07/highlighting-journalism-on-mastodon/) tag support.
 - Pagination on all post related pages.
 
-See the theme in action at [jimmitchell.org](https://jimmitchell.org).
+See the theme in action at [mnml.micro.blog](https://mnml.micro.blog).
 
-### Adding a Search Page
+## Adding a Search Page
 
 **mnml** has a built-in Search shortcode to let you add a Search page if you so desire...
 
@@ -36,14 +37,15 @@ See the theme in action at [jimmitchell.org](https://jimmitchell.org).
 
 Search results default to 5 until you set your own value in the **mnml** plugin settings page.
 
-### Special Thanks
+## Special Thanks
 
 Thank you to the following for their **mnml** localization contributions:
 
 - Swedish: [@robertbirming](https://github.com/robertbirming)
 - Ukrainian & Russian: [@luxury-format](https://github.com/luxury-format)
 - Chinese (Traditional): [@bobbytung](https://github.com/bobbytung)
+- Polish: [@bstn](https://micro.blog/bstn)
 
-### Support
+## Support
 
 If you like **mnml**, consider supporting the project: [Buy Me a Coffee](https://buymeacoffee.com/jim.mitchell).

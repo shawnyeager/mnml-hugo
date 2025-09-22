@@ -14,7 +14,6 @@
 	{{- $list = where .Site.Pages ".Params.photos" "!=" nil }}
 {{- end }}
 {{- $len := (len $list) }}
-
 {{- $currentYearMonth := "" }}
 {{- range sort $list "Date" "desc" }}
 	{{- $year := .Date.Format "2006" }}
