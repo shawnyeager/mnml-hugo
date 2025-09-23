@@ -563,6 +563,11 @@ a.category:visited,
   font-size: 1.6rem;
 }
 
+.category-list button .post-count {
+  font-size: 1.4rem;
+  margin-left: .3rem;
+}
+
 a.category:hover,
 a.category:active,
 .category-list button:hover,

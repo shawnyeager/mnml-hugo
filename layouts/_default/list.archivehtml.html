@@ -8,7 +8,7 @@
 		<div class="archive-categories">
 			<div class="category-list">
 				{{ range $categories }}
-				<a href="{{ .Page.Permalink }}"><button>{{ .Page.Title | safeHTML }}{{- if $category_count }}&nbsp;({{ .Count }}){{- end }}</button></a>
+				<a href="{{ .Page.Permalink }}"><button>{{ .Page.Title | safeHTML }}{{- if $category_count }}&nbsp;<span class="post-count">({{ .Count }})</span>{{- end }}</button></a>
 				{{ end }}
 			</div>
 		</div>
