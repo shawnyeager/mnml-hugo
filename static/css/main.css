@@ -281,6 +281,7 @@ pre {
   margin: 3rem 0;
   overflow-x: auto;
   padding: 2rem;
+  scrollbar-color: #64676e #101115;
   white-space: pre;
 }
 
@@ -292,11 +293,22 @@ code {
   white-space: nowrap;
 }
 
+pre::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background-color: #101115;
+}
+
+pre::-webkit-scrollbar-thumb {
+  background: #64676e;
+  border-radius: 5px;
+}
+
 pre code {
   background: none;
   border: none;
   color: inherit;
-  padding: 0 2rem;
+  padding: 0;
   white-space: pre;
 }
 
