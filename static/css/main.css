@@ -297,6 +297,8 @@ pre::-webkit-scrollbar {
   width: 8px;
   height: 8px;
   background-color: #101115;
+  border-bottom-left-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
 }
 
 pre::-webkit-scrollbar-thumb {
