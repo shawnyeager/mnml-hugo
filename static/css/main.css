@@ -542,7 +542,7 @@ single article {
 
 article img,
 article video {
-  border-radius: 1rem;
+  border-radius: var(--border-radius);
   display: block;
   height: auto;
   margin: 3rem auto;
