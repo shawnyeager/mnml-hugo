@@ -460,7 +460,9 @@ main {
 }
 
 article {
+  clear: both;
   margin: 0 0 8rem 0;
+  overflow: hidden;
   padding: 0;
 }
 
@@ -488,6 +490,7 @@ single article {
   width: calc(100% + 4rem);
   padding: 1.5rem 2rem 0 2rem;
   position: relative;
+  overflow: visible;
 }
 
 .pinned-badge {
@@ -958,6 +961,15 @@ a.tinylytics_webring {
   -webkit-filter: brightness(70%);
   filter: brightness(70%);
   transition: ease-in-out 0.25s;
+}
+
+.microblog_book {
+  border-radius: 0;
+  margin: 2.4rem 0 0 2rem !important;
+  border: 1px solid var(--accent-3);
+  object-fit: contain;
+  float: right;
+  max-width: 7rem !important;
 }
 
 @media (max-width: 600px) {
