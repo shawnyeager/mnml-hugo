@@ -988,6 +988,10 @@ a.tinylytics_webring {
   font-size: 2.5rem !important;
 }
 
+div.e-content {
+  overflow: hidden;
+}
+
 .microblog_book {
   border-radius: 0;
   margin: 2.4rem 0 0 2rem !important;
