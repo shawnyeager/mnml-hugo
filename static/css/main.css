@@ -462,7 +462,6 @@ main {
 article {
   clear: both;
   margin: 0 0 8rem 0;
-  overflow: hidden;
   padding: 0;
 }
 
@@ -490,7 +489,6 @@ single article {
   width: calc(100% + 4rem);
   padding: 1.5rem 2rem 0 2rem;
   position: relative;
-  overflow: visible;
 }
 
 .pinned-badge {
@@ -989,12 +987,12 @@ a.tinylytics_webring {
 }
 
 div.e-content {
-  overflow: hidden;
+  clear: both;
 }
 
 .microblog_book {
   border-radius: 0;
-  margin: 2.4rem 0 0 2rem !important;
+  margin: 0 0 0 2rem !important;
   border: 1px solid var(--accent-2);
   object-fit: contain;
   float: right;
