@@ -556,6 +556,7 @@ article ol li {
 }
 
 p.categories {
+  clear: both;
   margin-top: 3rem;
 }
 
