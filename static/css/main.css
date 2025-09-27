@@ -290,6 +290,7 @@ code {
   border-radius: var(--border-radius);
   color: #c7254e;
   padding: 2px 4px;
+  text-shadow: 0 1px 1px #fff;
   white-space: nowrap;
 }
 
@@ -311,6 +312,7 @@ pre code {
   border: none;
   color: inherit;
   padding: 0;
+  text-shadow: none;
   white-space: pre;
 }
 
