@@ -993,7 +993,7 @@ div.e-content {
 
 .microblog_book {
   border-radius: 0;
-  margin: 0 0 0 2rem !important;
+  margin: 2.4rem 0 0 2rem !important;
   border: 1px solid var(--accent-2);
   object-fit: contain;
   float: right;
@@ -1001,7 +1001,7 @@ div.e-content {
 }
 
 div.ealign-content .microblog_book {
-  margin-top: 2.4rem;
+  margin-top: 0;
 }
 
 img.bookshelf__cover {
