@@ -58,6 +58,7 @@ In your `hugo.toml`:
 - Hide the site avatar altogether if you choose
 - Built-in search functionality
 - Automatic video embedding from markdown links (MP4, MOV, WebM)
+- Optional archive years feature for filtering posts by year
 - [Fediverse Creator](https://blog.joinmastodon.org/2024/07/highlighting-journalism-on-mastodon/) tag support
 - Pagination on all post-related pages
 
@@ -87,6 +88,7 @@ defaultContentLanguage = "en"
 
 [outputs]
   home = ["HTML", "RSS", "archivejson"]
+  section = ["HTML", "RSS", "archivehtml"]  # Required for archive_years feature
 
 [outputFormats.RSS]
   mediaType = "application/rss+xml"
@@ -97,6 +99,10 @@ defaultContentLanguage = "en"
   baseName = "archive/index"
   isPlainText = true
   notAlternative = true
+
+[outputFormats.archivehtml]
+  mediaType = "text/html"
+  baseName = "index"
 
 [params]
   description = "A minimal, simple and clean blog."
@@ -124,6 +130,9 @@ defaultContentLanguage = "en"
 - `category_full_post` (boolean) - Show full posts on category pages (default: false)
 - `show_categories` (boolean) - Show category list on archives (default: true)
 - `show_category_count` (boolean) - Show post counts on category tags (default: true)
+- `archive_years` (boolean) - Enable year filtering on archive page (default: false)
+
+**Archive Years Feature**: When enabled, adds a dropdown to filter archive posts by year. Based on the [Archive Years plugin](https://github.com/jimmitchell/plugin-mnml-archive-years) by Jim Mitchell. Requires `archivehtml` output format on sections.
 
 #### Photos
 - `photos_category` (string) - Filter photos by category (default: "Photos")
