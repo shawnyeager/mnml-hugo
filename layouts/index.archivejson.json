@@ -3,7 +3,7 @@
 	"title": {{ .Site.Title | jsonify }},
 	"home_page_url": "{{ .Site.BaseURL }}",
 	"items": [
-		{{- $list := where site.RegularPages "Section" "in" (slice "posts" "photos") -}}
+		{{- $list := where site.RegularPages "Section" "post" -}}
 		{{- $len := (len $list) -}}
 		{{ range $index, $value := $list }}
 			{

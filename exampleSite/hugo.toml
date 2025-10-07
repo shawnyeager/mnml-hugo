@@ -64,8 +64,8 @@ defaultContentLanguage = "en"
 
   # Header
   narrow_header = false
-  hide_avatar = true
-  custom_avatar = ""
+  hide_avatar = false
+  custom_avatar = "/avatar.svg"
 
   # Home page
   show_full_post = false

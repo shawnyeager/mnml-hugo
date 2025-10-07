@@ -3,21 +3,21 @@
   <article class="h-entry {{ range $index, $category := .Params.categories }}{{ if gt $index 0 }} {{ end }}{{ $category | lower | urlize }}{{ end }}">
     {{- if .Title }}
     <h1 class="post-title">{{ .Title | safeHTML }}</h1>
-    {{- if not (in (slice "page" "pages") .Type) }}
-    <p class="post-date">
-      <time class="dt-published" datetime="{{ .Date.Format "2006-01-02 15:04:05 -0700" }}">
-        {{- if .Site.Params.use_short_date }}{{ .Date | time.Format ":date_short" }}{{- else }}{{ .Date | time.Format ":date_full" }}{{- end }}{{- if .Site.Params.show_read_time }}&nbsp;<span class="sep">&bull;</span>&nbsp;{{ .ReadingTime }}&nbsp;{{ T "min read" }}{{- end }}
-      </time>
-    </p>
     {{- end }}
-    {{- else }}
-    {{- if not (in (slice "page" "pages") .Type) }}
-    <p class="post-date btm-margin">
-      <time class="dt-published" datetime="{{ .Date.Format "2006-01-02 15:04:05 -0700" }}">
-        {{- if .Site.Params.use_short_date }}{{ .Date | time.Format ":date_short" }}{{- else }}{{ .Date | time.Format ":date_full" }}{{- end }}
-      </time>
-    </p>
-    {{- end }}
+    {{- if ne .Type "page" }}
+        {{- if .Title }}
+        <p class="post-date">
+          <time class="dt-published" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+            {{- if site.Params.use_short_date }}{{ .Date | time.Format ":date_short" }}{{- else }}{{ .Date | time.Format ":date_full" }}{{- end }}{{- if site.Params.show_read_time }}&nbsp;<span class="sep">&bull;</span>&nbsp;{{ .ReadingTime }}&nbsp;{{ T "min read" }}{{- end }}
+          </time>
+        </p>
+        {{- else }}
+        <p class="post-date btm-margin">
+          <time class="dt-published" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+            {{- if site.Params.use_short_date }}{{ .Date | time.Format ":date_short" }}{{- else }}{{ .Date | time.Format ":date_full" }}{{- end }}
+          </time>
+        </p>
+        {{- end }}
     {{- end }}
     <div class="e-content">
       {{- if .Params.photos }}
@@ -39,7 +39,7 @@
     {{- end }}
     {{- end }}
   </article>
-  {{- if and (or (.NextInSection) (.PrevInSection)) (not (in (slice "page" "pages") .Type)) }}
+  {{- if and (or (.NextInSection) (.PrevInSection)) (ne .Type "page") }}
   <nav class="main-nav">
     <ul>
       <li>{{ if .PrevInSection }}<a href="{{ .PrevInSection.Permalink }}">← {{ T "Older" }}</a>{{ end }}</li>
