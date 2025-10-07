@@ -57,6 +57,7 @@ In your `hugo.toml`:
 - Use a custom site icon
 - Hide the site avatar altogether if you choose
 - Built-in search functionality
+- Automatic video embedding from markdown links (MP4, MOV, WebM)
 - [Fediverse Creator](https://blog.joinmastodon.org/2024/07/highlighting-journalism-on-mastodon/) tag support
 - Pagination on all post-related pages
 
@@ -188,6 +189,28 @@ photos:
 
 Optional description...
 ```
+
+### Video Posts
+
+Videos are automatically embedded when you link to .mp4, .mov, or .webm files:
+
+**Simple video:**
+```markdown
+---
+date: 2025-10-06T10:00:00-00:00
+---
+
+Check out this video:
+
+[Video description](/uploads/video.mp4)
+```
+
+**Video with poster image:**
+```markdown
+[Video description](/uploads/video.mp4 "/uploads/poster.png")
+```
+
+The theme automatically converts these to HTML5 video players with controls.
 
 ### Adding a Search Page
 
