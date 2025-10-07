@@ -2,13 +2,17 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## TODO for Next Session
+
+- **Fix horizontal shift issue**: There is a remaining horizontal alignment shift between the home page and other pages. Need to investigate and fix the CSS causing this inconsistency.
+
 ## Project Overview
 
-**mnml** is a minimalist Hugo theme designed specifically as a **Micro.blog plugin**. It is not a standalone Hugo theme but rather a plugin theme that works within the Micro.blog platform ecosystem. It focuses on clean design, localization support, and flexible photo display options.
+**mnml-hugo** is a minimalist Hugo theme ported from the [mnml Micro.blog theme](https://github.com/jimmitchell/mnml) by Jim Mitchell. This is a standalone Hugo theme that works with any Hugo installation, not a Micro.blog plugin.
 
-Demo: https://mnml.micro.blog
+Demo: https://mnml.micro.blog (original Micro.blog version)
 
-**Important**: This is a Micro.blog plugin (defined by `plugin.json`) that users install through Micro.blog's plugin system. All theme parameters are configured through the Micro.blog web interface, which generates the necessary Hugo configuration automatically. The `plugin.json` file defines 22 configurable fields that appear as settings in the Micro.blog UI.
+**Version**: 1.0.0 - Released October 2025
 
 ## Architecture
 
