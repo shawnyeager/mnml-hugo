@@ -1,0 +1,91 @@
+baseURL = "https://example.com/"
+languageCode = "en"
+title = "mnml Example Site"
+theme = "mnml-hugo"
+
+defaultContentLanguage = "en"
+
+[pagination]
+  pagerSize = 20
+
+[permalinks]
+  post = "/:filename/"
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+[outputs]
+  home = ["HTML", "RSS", "archivejson"]
+
+[outputFormats.RSS]
+  mediaType = "application/rss+xml"
+  baseName = "feed"
+
+[outputFormats.archivejson]
+  mediaType = "application/json"
+  baseName = "archive/index"
+  isPlainText = true
+  notAlternative = true
+
+[outputFormats.photoshtml]
+  mediaType = "text/html"
+  baseName = "index"
+  isPlainText = false
+
+[[menu.main]]
+  name = "About"
+  url = "/about/"
+  weight = 1
+
+[[menu.main]]
+  name = "Photos"
+  url = "/photos/"
+  weight = 2
+
+[[menu.main]]
+  name = "Search"
+  url = "/search/"
+  weight = 3
+
+[params]
+  description = "A minimal, simple and clean Hugo theme."
+  itunes_description = "A minimal, simple and clean Hugo theme example site."
+
+  # Photos category
+  photos_category = "Photos"
+
+  # Cache busting
+  theme_seconds = "1"
+
+  # Date formatting
+  use_short_date = false
+  show_read_time = true
+
+  # Header
+  narrow_header = false
+  hide_avatar = true
+  custom_avatar = ""
+
+  # Home page
+  show_full_post = false
+
+  # Category pages
+  category_full_post = false
+  show_categories = true
+  show_category_count = true
+
+  # Photos
+  masonry_layout = false
+  full_width_photos = false
+
+  # Search
+  search_results = 5
+
+  # Footer
+  hide_copyright = false
+  footer_rss = true
+  hide_credit = false
+
+  # Pagination
+  archive-paginate = 30

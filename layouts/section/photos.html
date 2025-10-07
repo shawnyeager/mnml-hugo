@@ -1,0 +1,13 @@
+{{ define "main" }}
+<main class="photos{{ if .Site.Params.full_width_photos }}{{ print "-wide" }}{{ end }}">
+	<h1 class="page-title">{{ .Title | safeHTML }}</h1>
+	{{- with .Content }}
+	<div class="microblog-category-intro">{{ . | safeHTML }}</div>
+	{{- end }}
+		{{- if .Site.Params.masonry_layout }}
+		{{ partial "photos-masonry.html" . }}
+		{{- else }}
+		{{ partial "photos-grid.html" . }}
+		{{- end }}
+</main>
+{{ end }}

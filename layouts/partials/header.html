@@ -8,7 +8,7 @@
         {{- end }}
         <ul class="nav-menu">
         {{- range .Site.Menus.main }}
-            {{- if .Page.Params.redirect_url }}
+            {{- if and .Page .Page.Params.redirect_url }}
             <li class="nav-item"><a href="{{ .Page.Params.redirect_url }}">{{ .Name | safeHTML }}</a></li>
             {{- else }}
             <li class="nav-item"><a href="{{ .URL | relLangURL | safeURL }}">{{ .Name | safeHTML }}</a></li>

@@ -1,0 +1,66 @@
+baseURL = "https://example.com/"
+languageCode = "en"
+title = "My Blog"
+theme = "mnml-hugo"
+
+# Default content language (supported: en, de, es, fi, fr, it, pl, pt, ru, sv, uk, zh-TW)
+defaultContentLanguage = "en"
+
+# Pagination settings
+paginate = 20
+
+# Enable taxonomy pages
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+[params]
+  # Site description (used in meta tags)
+  description = "A minimal, simple and clean blog."
+  itunes_description = "A minimal, simple and clean blog."
+
+  # Cache busting for CSS files (use timestamp or version number)
+  theme_seconds = "1"
+
+  # Fediverse creator tag (e.g., @username@mastodon.instance)
+  fediverse_creator = ""
+
+  # Date and time formatting
+  use_short_date = false  # true = short format, false = long format
+  show_read_time = false  # Show estimated reading time on titled posts
+
+  # Header and avatar settings
+  narrow_header = false   # Use a narrow site header (matches content width)
+  hide_avatar = false     # Hide the header avatar
+  custom_avatar = ""      # URL to custom avatar image (ignored if hide_avatar is true)
+
+  # Home page settings
+  pinned_category = ""    # Category for the latest pinned post (leave blank for no pinned post)
+  home_category = ""      # Filter home page by categories (comma-separated, leave blank for all posts)
+  show_full_post = false  # Show full post content on homepage (false = summaries)
+
+  # Category/archive page settings
+  category_full_post = false  # Show full posts on category pages
+  show_categories = false     # Show category list on archives page
+  show_category_count = false # Show post count for each category on archives page
+
+  # Photos page settings
+  photos_category = ""       # Filter photos by category (leave blank for all images)
+  all_formats = false        # Display all image formats (jpg, png, webp, etc.)
+  masonry_layout = false     # Use masonry layout (false = grid layout)
+  full_width_photos = false  # Use wider photos page layout
+  single_image = false       # Show only first image from posts with multiple images
+
+  # Search settings
+  search_results = 5  # Number of search results to display
+
+  # Footer settings
+  hide_copyright = false  # Hide the footer copyright notice
+  footer_rss = false      # Add RSS link in footer
+  hide_credit = false     # Hide footer credits (Micro.blog, Hugo, theme)
+
+  # Advanced settings
+  plugins_js = []  # Array of additional JavaScript files to load
+
+  # Pagination for archive pages
+  archive-paginate = 30
