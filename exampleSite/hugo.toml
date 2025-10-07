@@ -28,6 +28,10 @@ defaultContentLanguage = "en"
   isPlainText = true
   notAlternative = true
 
+[outputFormats.archivehtml]
+  mediaType = "text/html"
+  baseName = "index"
+
 [outputFormats.photoshtml]
   mediaType = "text/html"
   baseName = "index"
@@ -39,14 +43,19 @@ defaultContentLanguage = "en"
   weight = 1
 
 [[menu.main]]
+  name = "Archive"
+  url = "/archive/"
+  weight = 2
+
+[[menu.main]]
   name = "Photos"
   url = "/photos/"
-  weight = 2
+  weight = 3
 
 [[menu.main]]
   name = "Search"
   url = "/search/"
-  weight = 3
+  weight = 4
 
 [params]
   description = "A minimal, simple and clean Hugo theme."
