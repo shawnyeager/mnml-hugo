@@ -35,6 +35,10 @@
   {{- end }}
   <link rel="canonical" href="{{ .Permalink }}">
   <link rel="author" href="humans.txt" />
+  {{- $favicon := or site.Params.custom_avatar site.Author.avatar }}
+  {{- if $favicon }}
+  <link rel="shortcut icon" href="{{ $favicon }}" type="image/x-icon">
+  {{- end }}
   <link href="{{ "css/fonts.css" | relURL }}?{{ .Site.Params.theme_seconds }}" rel="preload stylesheet" as="style">
   <link href="{{ "css/main.css" | relURL }}?{{ .Site.Params.theme_seconds }}" rel="preload stylesheet" as="style">
   {{- if .Site.Params.masonry_layout }}

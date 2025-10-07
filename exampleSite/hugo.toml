@@ -49,7 +49,7 @@ defaultContentLanguage = "en"
 
 [[menu.main]]
   name = "Photos"
-  url = "/photos/"
+  url = "/categories/photos/"
   weight = 3
 
 [[menu.main]]
