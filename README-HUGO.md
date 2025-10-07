@@ -1,6 +1,6 @@
-# mnml for Vanilla Hugo
+# mnml for Hugo
 
-This is a port of the **mnml** theme for use with vanilla Hugo (not as a Micro.blog plugin).
+This is a port of the **mnml** theme for use with Hugo (not as a Micro.blog plugin).
 
 ## Installation
 
@@ -192,7 +192,7 @@ Visit http://localhost:1313
 
 ## Differences from Micro.blog Version
 
-This vanilla Hugo version differs from the Micro.blog plugin in these ways:
+This Hugo version differs from the Micro.blog plugin in these ways:
 
 1. **Configuration**: Uses `hugo.toml` instead of Micro.blog's web UI
 2. **Missing partials**: Includes stub files for `microblog_head.html` and `custom_footer.html`
@@ -207,4 +207,4 @@ MIT License - see LICENSE file
 
 - Original theme by [Jim Mitchell](https://jimmitchell.org)
 - Designed for [Micro.blog](https://micro.blog)
-- Ported to vanilla Hugo
+- Ported to Hugo

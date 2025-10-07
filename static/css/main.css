@@ -464,6 +464,7 @@ main {
 article {
   clear: both;
   margin: 0 0 8rem 0;
+  overflow: hidden;
   padding: 0;
 }
 
@@ -491,6 +492,7 @@ single article {
   width: calc(100% + 4rem);
   padding: 1.5rem 2rem 0 2rem;
   position: relative;
+  overflow: visible;
 }
 
 .pinned-badge {
@@ -558,8 +560,7 @@ article ol li {
 }
 
 p.categories {
-  clear: both;
-  padding-top: 3rem;
+  margin-top: 3rem;
 }
 
 a.category:link,
@@ -990,7 +991,7 @@ a.tinylytics_webring {
 }
 
 div.e-content {
-  clear: both;
+  overflow: hidden;
 }
 
 .microblog_book {

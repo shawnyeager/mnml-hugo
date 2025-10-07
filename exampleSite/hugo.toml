@@ -49,7 +49,7 @@ defaultContentLanguage = "en"
 
 [[menu.main]]
   name = "Photos"
-  url = "/categories/photos/"
+  url = "/photos/"
   weight = 3
 
 [[menu.main]]
@@ -67,6 +67,9 @@ defaultContentLanguage = "en"
   # Cache busting
   theme_seconds = "1"
 
+  # Fediverse/Mastodon
+  # fediverse_creator = "@user@mastodon.social"
+
   # Date formatting
   use_short_date = false
   show_read_time = true
@@ -78,6 +81,8 @@ defaultContentLanguage = "en"
 
   # Home page
   show_full_post = false
+  pinned_category = "Pinned"
+  # home_category = "Blog"
 
   # Category pages
   category_full_post = false
@@ -87,6 +92,8 @@ defaultContentLanguage = "en"
   # Photos
   masonry_layout = false
   full_width_photos = false
+  single_image = false
+  all_formats = false
 
   # Search
   search_results = 5
