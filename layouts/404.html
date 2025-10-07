@@ -1,7 +1,13 @@
-{{ define "main" }}
+<!DOCTYPE html>
+<html lang="{{ site.Language.Lang }}">
+{{ partial "head.html" . }}
+<body>
+{{ partial "header.html" . }}
 <main>
 	<h1 class="page-title">Uh oh</h1>
 	<p>What you're looking for can't be found.</p>
-	<p>[<a href="/search/">Search</a>](/search/) for it, or go [<a href="/">home</a>](/) and try again?</p>
+	<p><a href="/search/">Search</a> for it, or go <a href="/">home</a> and try again?</p>
 </main>
-{{ end }}
+{{ partial "footer.html" . }}
+</body>
+</html>
