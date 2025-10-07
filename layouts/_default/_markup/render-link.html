@@ -3,12 +3,12 @@
 {{- $title := .Title -}}
 
 {{- if or (strings.HasSuffix $url ".mp4") (strings.HasSuffix $url ".mov") (strings.HasSuffix $url ".webm") -}}
-<p><video controls preload="metadata"{{- if $text }} aria-label="{{ $text }}"{{- end }}{{- if $title }} poster="{{ $title }}"{{- end }}>
+<video controls preload="metadata"{{- if $text }} aria-label="{{ $text }}"{{- end }}{{- if $title }} poster="{{ $title }}"{{- end }}>
   <source src="{{ $url }}" type="video/{{ path.Ext $url | strings.TrimPrefix "." }}">
   {{- if $text }}
   {{ $text }}
   {{- end }}
-</video></p>
+</video>
 {{- else -}}
 <a href="{{ $url }}"{{- with $title }} title="{{ . }}"{{- end }}>{{ $text | safeHTML }}</a>
 {{- end -}}
