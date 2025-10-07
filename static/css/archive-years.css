@@ -34,21 +34,21 @@ select:focus {
 
 @media (prefers-color-scheme: light) {
   select {
-    background-image: url(arrow-dark.svg);
+    background-image: url(/arrow-dark.svg);
   }
   select:hover,
   select:active {
-    background-image: url(arrow-light-hover.svg);
+    background-image: url(/arrow-light-hover.svg);
   }
 }
 
 @media (prefers-color-scheme: dark) {
   select {
-    background-image: url(arrow-light.svg);
+    background-image: url(/arrow-light.svg);
   }
   select:hover,
   select:active {
-    background-image: url(arrow-dark-hover.svg);
+    background-image: url(/arrow-dark-hover.svg);
   }
 }
 
