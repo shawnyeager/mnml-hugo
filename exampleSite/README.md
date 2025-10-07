@@ -28,4 +28,4 @@ Then visit http://localhost:1313
 3. Create content in `content/posts/`
 4. Run `hugo server` to preview
 
-See the main theme documentation in `../README-HUGO.md` for full configuration details.
+See the main theme documentation in `../README.md` for full configuration details.
