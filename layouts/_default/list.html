@@ -1,4 +1,34 @@
 {{ define "main" }}
+{{- if and (eq .Type "categories") (eq .Title "Photos") }}
+<main>
+    <h1 class="page-title">{{ .Title | safeHTML }}</h1>
+    {{- with .Content }}
+    <div class="microblog-category-intro">{{ . | safeHTML }}</div>
+    {{- end }}
+    {{- $paginator := .Paginate (where .Pages.ByDate.Reverse "Type" "post") (index .Site.Params "archive-paginate" | default 30) }}
+    {{- range $paginator.Pages  }}
+    {{- if .Params.photos }}
+    <article class="photos">
+            <p class="post-date btm-margin"><a href="{{ .Permalink }}">{{- if .Site.Params.use_short_date }}{{ .Date | time.Format ":date_short" }}{{- else }}{{ .Date | time.Format ":date_full" }}{{- end }} →</a></p>
+            {{- range .Params.photos }}
+            <p><img src="{{ . }}" alt=""></p>
+            {{- end }}
+            {{- if .Content }}
+            {{ .Content }}
+            {{- end }}
+    </article>
+    {{- end }}
+    {{- end }}
+    {{- if or ( $paginator.HasNext ) ( $paginator.HasPrev ) }}
+    <nav class="main-nav">
+        <ul>
+            <li>{{ if $paginator.HasNext }}<a href="{{ $paginator.Next.URL }}">← {{ T "Older" }}</a>{{ end }}</li>
+            <li>{{ if $paginator.HasPrev }}<a href="{{ $paginator.Prev.URL }}">{{ T "Newer" }} →</a>{{ end }}</li>
+        </ul>
+    </nav>
+    {{- end }}
+</main>
+{{- else }}
 <main>
     <h1 class="page-title">{{ .Title | safeHTML }}</h1>
     {{- with .Content }}
@@ -47,4 +77,5 @@
     </nav>
     {{- end }}
 </main>
+{{- end }}
 {{ end }}

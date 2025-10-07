@@ -6,9 +6,9 @@
 		<div class="microblog-category-intro">{{ . | safeHTML }}</div>
 		{{- end }}
 		{{- if site.Params.masonry_layout }}
-		{{ partial "photos-masonry.html" . }}
+		{{ partial "photos-masonry-category.html" . }}
 		{{- else }}
-		{{ partial "photos-grid.html" . }}
+		{{ partial "photos-grid-category.html" . }}
 		{{- end }}
 	</article>
 </main>
