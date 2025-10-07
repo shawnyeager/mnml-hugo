@@ -58,6 +58,8 @@ In your `hugo.toml`:
 - Hide the site avatar altogether if you choose
 - Built-in search functionality
 - [Fediverse Creator](https://blog.joinmastodon.org/2024/07/highlighting-journalism-on-mastodon/) tag support
+- **Optional Micropub support** for posting from IndieWeb clients
+- Full microformats2 markup for IndieWeb compatibility
 - Pagination on all post-related pages
 
 ## Configuration
@@ -143,6 +145,10 @@ defaultContentLanguage = "en"
 - `fediverse_creator` (string) - Fediverse creator tag (e.g., @user@mastodon.social)
 - `archive-paginate` (integer) - Archive page size (default: 30)
 
+#### Micropub / IndieWeb
+- `micropub.enabled` (boolean) - Enable Micropub endpoint discovery (default: false)
+- `micropub.endpoint` (string) - URL to your Micropub endpoint (e.g., https://your-endpoint.railway.app/nanopub.php)
+
 ## Creating Content
 
 ### Regular Posts
@@ -210,6 +216,20 @@ Then add it to your menu in `hugo.toml`:
   url = "/search/"
   weight = 4
 ```
+
+### Enabling Micropub Support
+
+To enable posting from Micropub clients (Indigenous, Quill, etc.), add to your `hugo.toml`:
+
+```toml
+[params.micropub]
+  enabled = true
+  endpoint = "https://your-nanopub.railway.app/nanopub.php"
+```
+
+This adds the necessary `<link>` tags for IndieAuth and Micropub discovery. The theme includes full microformats2 markup (`h-entry`, `p-name`, `e-content`, `dt-published`, `u-url`, `p-author`, `h-card`) for IndieWeb compatibility.
+
+For a complete Micropub setup guide, see the [nanopub-railway](https://github.com/shawnyeager/nanopub-railway) repository.
 
 ## Multi-language Support
 

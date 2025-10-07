@@ -1,6 +1,18 @@
 {{- /*
-  This partial is provided by the Micro.blog platform when used as a plugin.
-  For Hugo installations, this is an empty stub.
+  Optional Micropub and IndieWeb support for mnml-hugo theme.
 
-  If you need custom head elements, add them here.
+  To enable, add to your hugo.toml:
+
+  [params.micropub]
+    enabled = true
+    endpoint = "https://your-nanopub.railway.app/nanopub.php"
+
+  This adds the necessary <link> tags for IndieAuth and Micropub discovery.
 */ -}}
+
+{{- if .Site.Params.micropub.enabled }}
+<!-- IndieWeb / Micropub Support -->
+<link rel="micropub" href="{{ .Site.Params.micropub.endpoint }}">
+<link rel="authorization_endpoint" href="https://indieauth.com/auth">
+<link rel="token_endpoint" href="https://tokens.indieauth.com/token">
+{{- end }}

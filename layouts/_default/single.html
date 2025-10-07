@@ -2,7 +2,7 @@
 <main>
   <article class="h-entry {{ range $index, $category := .Params.categories }}{{ if gt $index 0 }} {{ end }}{{ $category | lower | urlize }}{{ end }}">
     {{- if .Title }}
-    <h1 class="{{- if eq .Type "page" }}page-title{{- else }}post-title{{- end }}">{{ .Title | safeHTML }}</h1>
+    <h1 class="{{- if eq .Type "page" }}page-title{{- else }}post-title p-name{{- end }}">{{ .Title | safeHTML }}</h1>
     {{- end }}
     {{- if ne .Type "page" }}
         {{- if .Title }}
@@ -33,9 +33,17 @@
     {{- with .GetTerms "categories" }}
     <p class="categories">
       {{- range . }}
-      <a href="{{ .RelPermalink }}" class="category">{{ .LinkTitle }}</a>
+      <a href="{{ .RelPermalink }}" class="category p-category">{{ .LinkTitle }}</a>
       {{- end }}
     </p>
+    {{- end }}
+    {{- end }}
+    {{- if ne .Type "page" }}
+    <a class="u-url" href="{{ .Permalink }}" style="display:none;">Permalink</a>
+    {{- if .Site.Author.name }}
+    <div class="p-author h-card" style="display:none;">
+      <a class="p-name u-url" href="{{ .Site.BaseURL }}">{{ .Site.Author.name }}</a>
+    </div>
     {{- end }}
     {{- end }}
   </article>
