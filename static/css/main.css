@@ -554,6 +554,11 @@ article video {
   width: 100%;
 }
 
+article p:has(> video:only-child) {
+  margin: 0;
+  padding: 0;
+}
+
 article ul li,
 article ol li {
   margin-bottom: 5px;
