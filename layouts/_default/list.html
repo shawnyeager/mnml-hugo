@@ -5,7 +5,7 @@
     {{- with .Content }}
     <div class="microblog-category-intro">{{ . | safeHTML }}</div>
     {{- end }}
-    {{- $paginator := .Paginate (where .Pages.ByDate.Reverse "Type" "post") (index .Site.Params "archive-paginate" | default 30) }}
+    {{- $paginator := .Paginate (where .Pages.ByDate.Reverse "Type" "post") }}
     {{- range $paginator.Pages  }}
     {{- if .Params.photos }}
     <article class="photos">
@@ -34,7 +34,7 @@
     {{- with .Content }}
     <div class="microblog-category-intro">{{ . | safeHTML }}</div>
     {{- end }}
-    {{- $paginator := .Paginate (where .Pages.ByDate.Reverse "Type" "post") (index .Site.Params "archive-paginate" | default 30) }}
+    {{- $paginator := .Paginate (where .Pages.ByDate.Reverse "Type" "post") }}
     {{- range $paginator.Pages  }}
     <article class="{{ range $index, $category := .Params.categories }}{{ if gt $index 0 }} {{ end }}{{ $category | lower | urlize }}{{ end }}">
         {{- if isset .Params "categories" }}

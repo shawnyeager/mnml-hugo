@@ -20,7 +20,7 @@
     {{- if $pinnedPost }}
         {{- $filteredPages = where $pages "Permalink" "not in" (slice (index $pinnedPost 0).Permalink) }}
     {{- end }}
-    {{- $paginator := .Paginate $filteredPages (index site.Params "archive-paginate" | default 20) }}
+    {{- $paginator := .Paginate $filteredPages }}
     {{- if and $pinnedPost (eq .Paginator.PageNumber 1) }}
         {{- range first 1 $pinnedPost }}
         <article class="h-entry pinned {{ range $index, $category := .Params.categories }}{{ if gt $index 0 }} {{ end }}{{ $category | lower | urlize }}{{ end }}">
