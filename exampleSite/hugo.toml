@@ -65,7 +65,7 @@ defaultContentLanguage = "en"
   photos_category = "Photos"
 
   # Cache busting
-  theme_seconds = "1"
+  theme_seconds = "3"
 
   # Fediverse/Mastodon
   # fediverse_creator = "@user@mastodon.social"

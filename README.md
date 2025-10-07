@@ -234,6 +234,34 @@ Set your language in `hugo.toml`:
 defaultContentLanguage = "de"
 ```
 
+## Customization
+
+### Custom CSS
+
+You can override any theme styles by creating a `static/css/custom.css` file in your site. This file will be loaded after the theme's CSS, allowing you to customize colors, fonts, and other styles.
+
+For example, to customize the color scheme:
+
+```css
+/* Light mode colors */
+:root {
+  --text-color: #333333;
+  --link-color: #0d88d8;
+  --background: #FFFFFF;
+}
+
+/* Dark mode colors */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-color: #FFFFFF;
+    --link-color: #45c8f7;
+    --background: #20232a;
+  }
+}
+```
+
+See the [Micro.blog customization guide](https://mnml.micro.blog/2025/01/23/modifying-the-color-scheme/) for more color variable examples.
+
 ## Development
 
 To test the theme locally:

@@ -2,7 +2,7 @@
 <main>
   <article class="h-entry {{ range $index, $category := .Params.categories }}{{ if gt $index 0 }} {{ end }}{{ $category | lower | urlize }}{{ end }}">
     {{- if .Title }}
-    <h1 class="post-title">{{ .Title | safeHTML }}</h1>
+    <h1 class="{{- if eq .Type "page" }}page-title{{- else }}post-title{{- end }}">{{ .Title | safeHTML }}</h1>
     {{- end }}
     {{- if ne .Type "page" }}
         {{- if .Title }}
