@@ -88,7 +88,8 @@ defaultContentLanguage = "en"
 
 [outputs]
   home = ["HTML", "RSS", "archivejson"]
-  section = ["HTML", "RSS", "archivehtml"]  # Required for archive_years feature
+  section = ["HTML", "RSS"]
+  archive = ["HTML", "archivehtml"]  # Required for archive_years feature
 
 [outputFormats.RSS]
   mediaType = "application/rss+xml"
@@ -132,7 +133,7 @@ defaultContentLanguage = "en"
 - `show_category_count` (boolean) - Show post counts on category tags (default: true)
 - `archive_years` (boolean) - Enable year filtering on archive page (default: false)
 
-**Archive Years Feature**: When enabled, adds a dropdown to filter archive posts by year. Based on the [Archive Years plugin](https://github.com/jimmitchell/plugin-mnml-archive-years) by Jim Mitchell. Requires `archivehtml` output format on sections.
+**Archive Years Feature**: When enabled, adds a dropdown to filter archive posts by year. Based on the [Archive Years plugin](https://github.com/jimmitchell/plugin-mnml-archive-years) by Jim Mitchell. Requires `archivehtml` output format on the archive section (see configuration above).
 
 #### Photos
 - `photos_category` (string) - Filter photos by category (default: "Photos")
