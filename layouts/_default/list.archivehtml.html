@@ -46,10 +46,12 @@
 						<a href="{{ .Permalink }}">{{- if .Site.Params.use_short_date }}{{ .Date | time.Format ":date_short" }}{{- else }}{{ .Date | time.Format ":date_full" }}{{- end }} →</a>
 					</p>
 					<div class="entry">
-					{{- /* Strip video markdown links from raw content BEFORE converting to plain text */ -}}
+					{{- /* Strip ALL markdown images/videos/links before rendering to HTML */ -}}
 					{{- $raw := .RawContent }}
-					{{- $stripped := replaceRE `\[([^\]]+)\]\([^)]*\.(mp4|mov|webm)[^)]*\)` "" $raw }}
-					{{- $summary := $stripped | plainify | htmlUnescape }}
+					{{- $stripped := replaceRE `!\[([^\]]*)\]\([^)]+\)` "" $raw }}
+					{{- $stripped = replaceRE `\[([^\]]+)\]\([^)]*\.(mp4|mov|webm)[^)]*\)` "" $stripped }}
+					{{- $rendered := .RenderString $stripped }}
+					{{- $summary := $rendered | plainify | htmlUnescape }}
 					{{- $summary = replaceRE `\s+` " " $summary }}
 					{{- $summary = strings.TrimSpace $summary | truncate 300 }}
 						{{- if $summary }}
