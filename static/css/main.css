@@ -378,6 +378,11 @@ textarea:focus {
   outline: none;
 }
 
+input[type="search"] {
+  margin-left: 0;
+  margin-right: 0;
+}
+
 main {
   margin: 0 auto;
   max-width: var(--site-width);
