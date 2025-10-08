@@ -17,6 +17,7 @@ defaultContentLanguage = "en"
 
 [outputs]
   home = ["HTML", "RSS", "archivejson"]
+  section = ["HTML", "RSS", "archivehtml"]
 
 [outputFormats.RSS]
   mediaType = "application/rss+xml"
