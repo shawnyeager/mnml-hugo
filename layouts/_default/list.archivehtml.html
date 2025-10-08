@@ -8,9 +8,12 @@
 		{{- if and (.Site.Params.show_categories) (gt (len $categories) 0) }}
 		<div class="archive-categories">
 			<div class="category-list">
+			{{- $photosCategory := $.Site.Params.photos_category | default "Photos" }}
 				{{ range $categories }}
+			{{- if ne .Page.Title $photosCategory }}
 				<a href="{{ .Page.Permalink }}"><button>{{ .Page.Title | safeHTML }}{{- if $category_count }}&nbsp;<span class="post-count">({{ .Count }})</span>{{- end }}</button></a>
 				{{ end }}
+			{{- end }}
 			</div>
 		</div>
 		{{- end }}

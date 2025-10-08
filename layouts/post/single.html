@@ -31,9 +31,12 @@
         </div>
         {{- if .Params.categories }}
         {{- with .GetTerms "categories" }}
+        {{- $photosCategory := site.Params.photos_category | default "Photos" }}
         <p class="categories">
             {{- range . }}
+            {{- if ne .LinkTitle $photosCategory }}
             <a href="{{ .RelPermalink }}" class="category">{{ .LinkTitle }}</a>
+            {{- end }}
             {{- end }}
         </p>
         {{- end }}
