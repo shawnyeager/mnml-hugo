@@ -25,8 +25,9 @@
               <p><img src="{{ . }}" alt="" /></p>
               {{- end }}
             </div>
-            {{- end }}
+            {{- else }}
             {{ .Content }}
+            {{- end }}
         </div>
         {{- if .Params.categories }}
         {{- with .GetTerms "categories" }}
