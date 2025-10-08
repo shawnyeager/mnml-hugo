@@ -999,11 +999,6 @@ div.e-content {
   overflow: hidden;
 }
 
-div.e-content form {
-  padding-top: 1px;
-  margin-top: -1px;
-}
-
 .microblog_book {
   border-radius: 0;
   margin: 2.4rem 0 0 2rem !important;
