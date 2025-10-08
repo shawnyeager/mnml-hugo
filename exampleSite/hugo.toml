@@ -9,7 +9,7 @@ defaultContentLanguage = "en"
   pagerSize = 20
 
 [permalinks]
-  post = "/:filename/"
+  post = "/:contentbasename/"
 
 [taxonomies]
   category = "categories"
