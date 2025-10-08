@@ -26,20 +26,40 @@
 		{{- if $singleImage }}
 			{{- with (first 1 .Params.images) }}
 				{{ range . }}
-				<li>
-					<a href="{{ $postPermalink }}">
-						<img src="{{ . }}" loading="lazy" />
-					</a>
-				</li>
+				{{- $img := resources.Get . }}
+				{{- if $img }}
+					{{- $thumb := $img.Resize "400x webp q85" }}
+					<li>
+						<a href="{{ $postPermalink }}">
+							<img src="{{ $thumb.RelPermalink }}" loading="lazy" />
+						</a>
+					</li>
+				{{- else }}
+					<li>
+						<a href="{{ $postPermalink }}">
+							<img src="{{ . | safeURL }}" loading="lazy" />
+						</a>
+					</li>
+				{{- end }}
 				{{ end }}
 			{{- end }}
 		{{- else }}
 			{{ range .Params.images }}
-			<li>
-				<a href="{{ $postPermalink }}">
-					<img src="{{ . }}" loading="lazy" />
-				</a>
-			</li>
+				{{- $img := resources.Get . }}
+				{{- if $img }}
+					{{- $thumb := $img.Resize "400x webp q85" }}
+					<li>
+						<a href="{{ $postPermalink }}">
+							<img src="{{ $thumb.RelPermalink }}" loading="lazy" />
+						</a>
+					</li>
+				{{- else }}
+					<li>
+						<a href="{{ $postPermalink }}">
+							<img src="{{ . | safeURL }}" loading="lazy" />
+						</a>
+					</li>
+				{{- end }}
 			{{ end }}
 		{{- end }}
 	{{- else }}
@@ -47,20 +67,40 @@
 		{{- if $singleImage }}
 			{{- with (first 1 .Params.photos) }}
 				{{ range . }}
-				<li>
-					<a href="{{ $postPermalink }}">
-						<img src="{{ . }}" loading="lazy" />
-					</a>
-				</li>
+				{{- $img := resources.Get . }}
+				{{- if $img }}
+					{{- $thumb := $img.Resize "400x webp q85" }}
+					<li>
+						<a href="{{ $postPermalink }}">
+							<img src="{{ $thumb.RelPermalink }}" loading="lazy" />
+						</a>
+					</li>
+				{{- else }}
+					<li>
+						<a href="{{ $postPermalink }}">
+							<img src="{{ . | safeURL }}" loading="lazy" />
+						</a>
+					</li>
+				{{- end }}
 				{{ end }}
 			{{- end }}
 		{{- else }}
 			{{ range .Params.photos }}
-			<li>
-				<a href="{{ $postPermalink }}">
-					<img src="{{ . }}" loading="lazy" />
-				</a>
-			</li>
+				{{- $img := resources.Get . }}
+				{{- if $img }}
+					{{- $thumb := $img.Resize "400x webp q85" }}
+					<li>
+						<a href="{{ $postPermalink }}">
+							<img src="{{ $thumb.RelPermalink }}" loading="lazy" />
+						</a>
+					</li>
+				{{- else }}
+					<li>
+						<a href="{{ $postPermalink }}">
+							<img src="{{ . | safeURL }}" loading="lazy" />
+						</a>
+					</li>
+				{{- end }}
 			{{ end }}
 		{{- end }}
 	{{- end }}

@@ -5,8 +5,13 @@
 {{- if or (strings.HasSuffix $url ".mp4") (strings.HasSuffix $url ".mov") (strings.HasSuffix $url ".webm") -}}
 {{- .Page.Store.Set "hasVideo" true -}}
 </p>
+{{- /* Add leading slash if URL doesn't start with /, http://, or https:// */ -}}
+{{- $videoUrl := $url -}}
+{{- if and (not (hasPrefix $url "/")) (not (hasPrefix $url "http://")) (not (hasPrefix $url "https://")) -}}
+  {{- $videoUrl = printf "/%s" $url -}}
+{{- end -}}
 <video controls preload="metadata"{{- if $text }} aria-label="{{ $text }}"{{- end }}{{- if $title }} poster="{{ $title }}"{{- end }}>
-  <source src="{{ $url }}" type="video/{{ path.Ext $url | strings.TrimPrefix "." }}">
+  <source src="{{ $videoUrl }}" type="video/{{ path.Ext $url | strings.TrimPrefix "." }}">
   {{- if $text }}
   {{ $text }}
   {{- end }}

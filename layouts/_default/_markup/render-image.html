@@ -1,0 +1,19 @@
+{{- $img := resources.Get .Destination -}}
+{{- if $img -}}
+  {{- $small := $img.Resize "400x webp q85" -}}
+  {{- $medium := $img.Resize "800x webp q85" -}}
+  {{- $large := $img.Resize "1200x webp q85" -}}
+  <img
+    src="{{ $medium.RelPermalink }}"
+    srcset="{{ $small.RelPermalink }} 400w, {{ $medium.RelPermalink }} 800w, {{ $large.RelPermalink }} 1200w"
+    sizes="(max-width: 600px) 400px, (max-width: 1000px) 800px, 1200px"
+    width="{{ $img.Width }}"
+    height="{{ $img.Height }}"
+    alt="{{ .Text }}"
+    loading="lazy"
+    decoding="async"
+  >
+{{- else -}}
+  {{- /* Fallback if image not found in assets */ -}}
+  <img src="{{ .Destination | safeURL }}" alt="{{ .Text }}" loading="lazy">
+{{- end -}}

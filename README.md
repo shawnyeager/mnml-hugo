@@ -44,6 +44,8 @@ In your `hugo.toml`:
 - Localized for 12 languages
 - System display mode aware (light and dark)
 - Mobile responsive
+- **Hugo Extended image processing with WebP optimization** (requires Hugo Extended)
+- Responsive images with automatic srcset generation (400w, 800w, 1200w)
 - Featured post category setting
 - Custom home page category setting
 - Multiple, comma-separated home page categories
@@ -61,6 +63,13 @@ In your `hugo.toml`:
 - Optional archive years feature for filtering posts by year
 - [Fediverse Creator](https://blog.joinmastodon.org/2024/07/highlighting-journalism-on-mastodon/) tag support
 - Pagination on all post-related pages
+
+## Requirements
+
+- **Hugo Extended v0.151.0+** - Required for image processing features
+  - Install Hugo Extended (not standard Hugo) for WebP image optimization
+  - Image processing is automatic when using Hugo Extended
+  - Standard Hugo will work but without responsive image optimization
 
 ## Configuration
 
@@ -109,6 +118,16 @@ defaultContentLanguage = "en"
   description = "A minimal, simple and clean blog."
   itunes_description = "A minimal, simple and clean blog."
   theme_seconds = "1"  # Cache busting version
+
+# Optional: Image processing settings (Hugo Extended only)
+[imaging]
+  quality = 85
+  resampleFilter = "Lanczos"
+  anchor = "Smart"
+
+[imaging.exif]
+  disableDate = false
+  disableLatLong = true
 ```
 
 ### Theme Parameters
@@ -185,7 +204,7 @@ Just a quick thought...
 
 ### Photo Posts
 
-Add photos using the `photos` parameter:
+Add photos using the `photos` parameter. Store images in `assets/images/` for automatic Hugo image processing (WebP, responsive sizes):
 
 ```markdown
 ---
@@ -193,16 +212,35 @@ title: "My Photo Collection"
 date: 2025-10-06T10:00:00-00:00
 categories: ["Photos"]
 photos:
-  - "/images/photo1.jpg"
-  - "/images/photo2.jpg"
+  - "images/photo1.jpg"
+  - "images/photo2.jpg"
 ---
 
 Optional description...
 ```
 
+Or use inline markdown images:
+
+```markdown
+---
+date: 2025-10-06T10:00:00-00:00
+categories: ["Photos"]
+---
+
+![Alt text](images/photo.jpg)
+```
+
+**Image Processing**: When using Hugo Extended, images are automatically:
+- Converted to WebP format for better compression
+- Generated in 3 responsive sizes (400w, 800w, 1200w)
+- Optimized with lazy loading and proper dimensions
+- Cached in `resources/` directory for fast rebuilds
+
+Store images in `assets/images/` (processed) or `static/images/` (served as-is).
+
 ### Video Posts
 
-Videos are automatically embedded when you link to .mp4, .mov, or .webm files:
+Videos are automatically embedded when you link to .mp4, .mov, or .webm files. Store videos in `static/images/` (they are served as-is, not processed like images):
 
 **Simple video:**
 ```markdown
@@ -212,12 +250,12 @@ date: 2025-10-06T10:00:00-00:00
 
 Check out this video:
 
-[Video description](/uploads/video.mp4)
+[Video description](images/video.mp4)
 ```
 
 **Video with poster image:**
 ```markdown
-[Video description](/uploads/video.mp4 "/uploads/poster.png")
+[Video description](images/video.mp4 "images/poster.png")
 ```
 
 The theme automatically converts these to HTML5 video players with controls.
