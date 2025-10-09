@@ -2,7 +2,7 @@
 {{- if not site.Params.hide_copyright }}
     {{- $posts := where site.RegularPages "Type" "post" }}
     {{- if $posts }}
-        {{- $earliest := (index (last 1 ($posts.ByDate)) 0).Date.Year }}
+        {{- $earliest := (index (first 1 ($posts.ByDate)) 0).Date.Year }}
         <p>&copy; {{- if ne $earliest now.Year }}{{ $earliest }}&nbsp;-&nbsp;{{- end }}{{ now.Year }} {{ or site.Author.name site.Title }}</p>
     {{- else }}
         <p>&copy; {{ now.Year }} {{ or site.Author.name site.Title }}</p>
