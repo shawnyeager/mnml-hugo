@@ -2,6 +2,7 @@
 {{- $text := .Text -}}
 {{- $title := .Title -}}
 
+{{- /* Handle video links */ -}}
 {{- if or (strings.HasSuffix $url ".mp4") (strings.HasSuffix $url ".mov") (strings.HasSuffix $url ".webm") -}}
 {{- .Page.Store.Set "hasVideo" true -}}
 </p>
@@ -17,6 +18,15 @@
   {{- end }}
 </video>
 <p>
+{{- /* Handle Obsidian-style .md links (convert to Hugo relref) */ -}}
+{{- else if strings.HasSuffix $url ".md" -}}
+{{- $cleanUrl := strings.TrimSuffix $url ".md" -}}
+{{- with .Page.GetPage $cleanUrl -}}
+<a href="{{ .RelPermalink }}"{{- with $title }} title="{{ . }}"{{- end }}>{{ $text | safeHTML }}</a>
+{{- else -}}
+<a href="{{ $url }}"{{- with $title }} title="{{ . }}"{{- end }}>{{ $text | safeHTML }}</a>
+{{- end -}}
+{{- /* Regular links */ -}}
 {{- else -}}
 <a href="{{ $url }}"{{- with $title }} title="{{ . }}"{{- end }}>{{ $text | safeHTML }}</a>
 {{- end -}}
