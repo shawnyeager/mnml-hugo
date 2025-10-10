@@ -6,6 +6,12 @@ A clean and simple minimalist theme for Hugo, ported from the [mnml Micro.blog t
 
 See the original theme in action at [mnml.micro.blog](https://mnml.micro.blog).
 
+## Performance
+
+Built for speed with excellent Lighthouse scores:
+
+![Lighthouse Scores](lighthouse-scores.png)
+
 ## Installation
 
 ### Option 1: Git Submodule
