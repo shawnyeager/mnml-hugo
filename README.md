@@ -4,91 +4,104 @@
 
 A clean and simple minimalist theme for Hugo, ported from the [mnml Micro.blog theme](https://github.com/jimmitchell/mnml) by [Jim Mitchell](https://jimmitchell.org).
 
-See the original theme in action at [mnml.micro.blog](https://mnml.micro.blog).
-
-## Performance
-
-Built for speed with excellent Lighthouse scores:
+**[View Demo](https://mnml.micro.blog)** • Built for speed with excellent Lighthouse scores:
 
 ![Lighthouse Scores](lighthouse-scores.png)
 
-## Installation
-
-### Option 1: Git Submodule
+## Quick Start
 
 ```bash
+# Add theme to your Hugo site
 cd your-hugo-site
 git submodule add https://github.com/shawnyeager/mnml-hugo.git themes/mnml-hugo
+
+# Copy example configuration
+cp themes/mnml-hugo/exampleSite/hugo.toml hugo.toml
+
+# Create your first post
+hugo new content/post/my-first-post.md
+
+# Start the server
+hugo server
 ```
 
-### Option 2: Clone
+<details>
+<summary><b>Other Installation Methods</b></summary>
 
+### Clone Method
 ```bash
 cd your-hugo-site/themes
 git clone https://github.com/shawnyeager/mnml-hugo.git
 ```
 
-### Option 3: Hugo Modules (requires Go)
-
+### Hugo Modules (requires Go)
 In your `hugo.toml`:
-
 ```toml
 [module]
   [[module.imports]]
     path = "github.com/shawnyeager/mnml-hugo"
 ```
-
-## Quick Start
-
-1. Copy the example configuration from `exampleSite/hugo.toml` to your site's `hugo.toml`
-2. Customize the parameters
-3. Create content in `content/post/`
-4. Run `hugo server` to preview
-
-## Key Features
-
-- Localized for 12 languages
-- System display mode aware (light and dark)
-- Mobile responsive
-- **Hugo Extended image processing with WebP optimization** (requires Hugo Extended)
-- Responsive images with automatic srcset generation (400w, 800w, 1200w)
-- Featured post category setting
-- Custom home page category setting
-- Multiple, comma-separated home page categories
-- Choose between wider or narrower site header
-- Choose between long or short date formats
-- Display full posts on category pages
-- Custom photos page category setting
-- Grid or Masonry photo layout options
-- Show all image formats on photos page
-- Wide or narrow photo page layout setting
-- Use a custom site icon
-- Hide the site avatar altogether if you choose
-- Built-in search functionality
-- Automatic video embedding from markdown links (MP4, MOV, WebM)
-- Optional archive years feature for filtering posts by year
-- [Fediverse Creator](https://blog.joinmastodon.org/2024/07/highlighting-journalism-on-mastodon/) tag support
-- Pagination on all post-related pages
+</details>
 
 ## Requirements
 
-- **Hugo Extended v0.151.0+** - Required for image processing features
-  - Install Hugo Extended (not standard Hugo) for WebP image optimization
-  - Image processing is automatic when using Hugo Extended
-  - Standard Hugo will work but without responsive image optimization
+**Hugo Extended v0.151.0+** — Required for image processing features (WebP optimization, responsive images). Standard Hugo works but without image optimization.
+
+## Features
+
+### Core Features
+- 🌍 **12 languages** supported with full i18n
+- 🌓 **Light/dark mode** with automatic system detection
+- 📱 **Mobile responsive** design
+- 🔍 **Built-in search** functionality
+- 📄 **Pagination** on all post-related pages
+
+### Content & Media
+- 🖼️ **Advanced image processing** (WebP, responsive srcset: 400w/800w/1200w)
+- 📸 **Photo layouts** (grid or masonry)
+- 🎥 **Automatic video embedding** (MP4, MOV, WebM)
+- 📝 **Microblog-style** titleless posts
+
+### Customization
+- 🎨 **Category filtering** for home page and photos
+- 📌 **Pinned posts** by category
+- 🖥️ **Header width** options (wide or narrow)
+- 📅 **Date format** options (short or long)
+- 👤 **Custom avatars** or hide avatar entirely
+- 🗃️ **Archive years filtering** for posts by year
+- 🐘 **Fediverse Creator** tag support
+
+<details>
+<summary><b>View all features</b></summary>
+
+- Featured post category setting
+- Custom home page category setting
+- Multiple, comma-separated home page categories
+- Display full posts on category pages
+- Custom photos page category setting
+- Wide or narrow photo page layout setting
+- Show all image formats on photos page
+- Show only first image from multi-image posts
+- Reading time display
+- Category counts on archive pages
+- Customizable search results count
+- RSS feed customization
+- Footer customization options
+
+</details>
 
 ## Configuration
 
-All parameters are optional with sensible defaults. See `exampleSite/hugo.toml` for a complete example.
+Copy `exampleSite/hugo.toml` to your site for a complete working configuration. All parameters are optional with sensible defaults.
 
-### Basic Configuration
+<details>
+<summary><b>Essential Configuration</b></summary>
 
 ```toml
 baseURL = "https://example.com/"
 languageCode = "en"
 title = "My Blog"
 theme = "mnml-hugo"
-
 defaultContentLanguage = "en"
 
 [pagination]
@@ -125,7 +138,7 @@ defaultContentLanguage = "en"
   itunes_description = "A minimal, simple and clean blog."
   theme_seconds = "1"  # Cache busting version
 
-# Optional: Image processing settings (Hugo Extended only)
+# Image processing settings (Hugo Extended only)
 [imaging]
   quality = 85
   resampleFilter = "Lanczos"
@@ -136,54 +149,73 @@ defaultContentLanguage = "en"
   disableLatLong = true
 ```
 
-### Theme Parameters
+</details>
 
-#### Date & Time
-- `use_short_date` (boolean) - Use short date format (default: false)
-- `show_read_time` (boolean) - Show reading time on posts (default: true)
+<details>
+<summary><b>Theme Parameters Reference</b></summary>
 
-#### Header & Avatar
-- `narrow_header` (boolean) - Use narrow header width (default: false)
-- `hide_avatar` (boolean) - Hide site avatar (default: false)
-- `custom_avatar` (string) - URL to custom avatar image
+### Date & Time
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `use_short_date` | boolean | false | Use short date format |
+| `show_read_time` | boolean | true | Show reading time on posts |
 
-#### Home Page
-- `home_category` (string) - Filter by category (comma-separated for multiple)
-- `pinned_category` (string) - Category for pinned post (default: "Pinned")
-- `show_full_post` (boolean) - Show full posts vs summaries (default: false)
+### Header & Avatar
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `narrow_header` | boolean | false | Use narrow header width |
+| `hide_avatar` | boolean | false | Hide site avatar |
+| `custom_avatar` | string | - | URL to custom avatar image |
 
-#### Category/Archive Pages
-- `category_full_post` (boolean) - Show full posts on category pages (default: false)
-- `show_categories` (boolean) - Show category list on archives (default: true)
-- `show_category_count` (boolean) - Show post counts on category tags (default: true)
-- `archive_years` (boolean) - Enable year filtering on archive page (default: false)
+### Home Page
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `home_category` | string | - | Filter by category (comma-separated for multiple) |
+| `pinned_category` | string | "Pinned" | Category for pinned post |
+| `show_full_post` | boolean | false | Show full posts vs summaries |
 
-**Archive Years Feature**: When enabled, adds a dropdown to filter archive posts by year. Based on the [Archive Years plugin](https://github.com/jimmitchell/plugin-mnml-archive-years) by Jim Mitchell. Requires `archivehtml` output format on the archive section (see configuration above).
+### Category/Archive Pages
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `category_full_post` | boolean | false | Show full posts on category pages |
+| `show_categories` | boolean | true | Show category list on archives |
+| `show_category_count` | boolean | true | Show post counts on category tags |
+| `archive_years` | boolean | false | Enable year filtering on archive page* |
 
-#### Photos
-- `photos_category` (string) - Filter photos by category (default: "Photos")
-- `all_formats` (boolean) - Show all image formats (default: false)
-- `masonry_layout` (boolean) - Use masonry layout (default: false = grid)
-- `full_width_photos` (boolean) - Use wider photos layout (default: false)
-- `single_image` (boolean) - Show only first image (default: false)
+*Archive Years Feature: Adds a dropdown to filter archive posts by year. Based on the [Archive Years plugin](https://github.com/jimmitchell/plugin-mnml-archive-years) by Jim Mitchell. Requires `archivehtml` output format.
 
-#### Search
-- `search_results` (integer) - Number of search results to display (default: 5)
+### Photos
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `photos_category` | string | "Photos" | Filter photos by category |
+| `all_formats` | boolean | false | Show all image formats |
+| `masonry_layout` | boolean | false | Use masonry layout (false = grid) |
+| `full_width_photos` | boolean | false | Use wider photos layout |
+| `single_image` | boolean | false | Show only first image |
 
-#### Footer
-- `hide_copyright` (boolean) - Hide copyright notice (default: false)
-- `footer_rss` (boolean) - Add RSS link to footer (default: true)
-- `hide_credit` (boolean) - Hide theme credits (default: false)
+### Search
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `search_results` | integer | 5 | Number of search results to display |
 
-#### Advanced
-- `fediverse_creator` (string) - Fediverse creator tag (e.g., @user@mastodon.social)
-- `archive-paginate` (integer) - Archive page size (default: 30)
+### Footer
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `hide_copyright` | boolean | false | Hide copyright notice |
+| `footer_rss` | boolean | true | Add RSS link to footer |
+| `hide_credit` | boolean | false | Hide theme credits |
+
+### Advanced
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `fediverse_creator` | string | - | Fediverse creator tag (e.g., @user@mastodon.social) |
+| `archive-paginate` | integer | 30 | Archive page size |
+
+</details>
 
 ## Creating Content
 
 ### Regular Posts
-
-Create posts in `content/post/`:
 
 ```markdown
 ---
@@ -195,22 +227,24 @@ categories: ["Blog"]
 Your content here...
 ```
 
-### Short Posts (Microblog Style)
+Posts go in `content/post/` directory.
 
-Posts without titles work great for microblogging:
+### Microblog Posts
+
+Omit the title for microblog-style posts:
 
 ```markdown
 ---
 date: 2025-10-06T10:00:00-00:00
-categories: ["Micro"]
 ---
 
 Just a quick thought...
 ```
 
-### Photo Posts
+<details>
+<summary><b>Photo Posts</b></summary>
 
-Add photos using the `photos` parameter. Store images in `assets/images/` for automatic Hugo image processing (WebP, responsive sizes):
+Add photos using the `photos` parameter. Store images in `assets/images/` for automatic processing:
 
 ```markdown
 ---
@@ -225,61 +259,54 @@ photos:
 Optional description...
 ```
 
-Or use inline markdown images:
-
+Or use inline markdown:
 ```markdown
----
-date: 2025-10-06T10:00:00-00:00
-categories: ["Photos"]
----
-
 ![Alt text](images/photo.jpg)
 ```
 
-**Image Processing**: When using Hugo Extended, images are automatically:
-- Converted to WebP format for better compression
-- Generated in 3 responsive sizes (400w, 800w, 1200w)
-- Optimized with lazy loading and proper dimensions
-- Cached in `resources/` directory for fast rebuilds
+**Image Processing** (Hugo Extended):
+- Auto-converted to WebP format
+- 3 responsive sizes generated (400w, 800w, 1200w)
+- Lazy loading and proper dimensions
+- Cached in `resources/` for fast rebuilds
 
 Store images in `assets/images/` (processed) or `static/images/` (served as-is).
 
-### Video Posts
+</details>
 
-Videos are automatically embedded when you link to .mp4, .mov, or .webm files. Store videos in `static/images/` (they are served as-is, not processed like images):
+<details>
+<summary><b>Video Posts</b></summary>
+
+Videos (.mp4, .mov, .webm) are automatically embedded. Store in `static/images/`:
 
 **Simple video:**
 ```markdown
----
-date: 2025-10-06T10:00:00-00:00
----
-
-Check out this video:
-
 [Video description](images/video.mp4)
 ```
 
-**Video with poster image:**
+**With poster image:**
 ```markdown
 [Video description](images/video.mp4 "images/poster.png")
 ```
 
-The theme automatically converts these to HTML5 video players with controls.
+Automatically converts to HTML5 video players with controls.
 
-### Adding a Search Page
+</details>
+
+<details>
+<summary><b>Search Page</b></summary>
 
 Create `content/search.md`:
 
 ```markdown
 ---
 title: "Search"
-date: 2025-10-06T10:00:00-00:00
 ---
 
 {{< search >}}
 ```
 
-Then add it to your menu in `hugo.toml`:
+Add to menu in `hugo.toml`:
 
 ```toml
 [[menu.main]]
@@ -288,46 +315,23 @@ Then add it to your menu in `hugo.toml`:
   weight = 4
 ```
 
-## Multi-language Support
-
-The theme supports 12 languages:
-
-- English (en)
-- German (de)
-- Spanish (es)
-- Finnish (fi)
-- French (fr)
-- Italian (it)
-- Polish (pl)
-- Portuguese (pt)
-- Russian (ru)
-- Swedish (sv)
-- Ukrainian (uk)
-- Chinese Traditional (zh-TW)
-
-Set your language in `hugo.toml`:
-
-```toml
-defaultContentLanguage = "de"
-```
+</details>
 
 ## Customization
 
 ### Custom CSS
 
-You can override any theme styles by creating a `static/css/custom.css` file in your site. This file will be loaded after the theme's CSS, allowing you to customize colors, fonts, and other styles.
-
-For example, to customize the color scheme:
+Override theme styles by creating `static/css/custom.css` in your site:
 
 ```css
-/* Light mode colors */
+/* Light mode */
 :root {
   --text-color: #333333;
   --link-color: #0d88d8;
   --background: #FFFFFF;
 }
 
-/* Dark mode colors */
+/* Dark mode */
 @media (prefers-color-scheme: dark) {
   :root {
     --text-color: #FFFFFF;
@@ -337,11 +341,18 @@ For example, to customize the color scheme:
 }
 ```
 
-See the [Micro.blog customization guide](https://mnml.micro.blog/2025/01/23/modifying-the-color-scheme/) for more color variable examples.
+See the [Micro.blog customization guide](https://mnml.micro.blog/2025/01/23/modifying-the-color-scheme/) for more examples.
+
+### Languages
+
+Supports 12 languages: English, German, Spanish, Finnish, French, Italian, Polish, Portuguese, Russian, Swedish, Ukrainian, Chinese (Traditional).
+
+Set in `hugo.toml`:
+```toml
+defaultContentLanguage = "de"
+```
 
 ## Development
-
-To test the theme locally:
 
 ```bash
 cd exampleSite
@@ -350,35 +361,34 @@ hugo server --themesDir ../..
 
 Visit http://localhost:1313
 
-## Differences from Micro.blog Version
+<details>
+<summary><b>Differences from Micro.blog Version</b></summary>
 
-This Hugo version differs from the [Micro.blog plugin](https://github.com/jimmitchell/mnml) in these ways:
+This Hugo port differs from the [Micro.blog plugin](https://github.com/jimmitchell/mnml):
 
 1. **Configuration**: Uses `hugo.toml` instead of Micro.blog's web UI
 2. **Content structure**: Posts go in `content/post/` directory
 3. **Platform features**: Some Micro.blog-specific features may not be available
 4. **Stub partials**: Includes empty stub files for `microblog_head.html` and `custom_footer.html`
 
-## Special Thanks
+</details>
 
-Thank you to the following for their **mnml** localization contributions:
+---
+
+## Credits & Support
+
+**Original Theme**: [Jim Mitchell](https://jimmitchell.org) • [github.com/jimmitchell/mnml](https://github.com/jimmitchell/mnml)
+**Hugo Port**: Shawn Yeager • [github.com/shawnyeager/mnml-hugo](https://github.com/shawnyeager/mnml-hugo)
+
+### Localization Contributors
 
 - Swedish: [@robertbirming](https://github.com/robertbirming)
 - Ukrainian & Russian: [@luxury-format](https://github.com/luxury-format)
 - Chinese (Traditional): [@bobbytung](https://github.com/bobbytung)
 - Polish: [@bstn](https://micro.blog/bstn)
 
-## License
+### Support
 
-MIT License - see LICENSE file
+If you enjoy **mnml**, consider [supporting Jim Mitchell](https://buymeacoffee.com/jim.mitchell) ☕
 
-## Credits
-
-- Original theme by [Jim Mitchell](https://jimmitchell.org)
-- Designed for [Micro.blog](https://micro.blog)
-- Original theme: [github.com/jimmitchell/mnml](https://github.com/jimmitchell/mnml)
-- Hugo port: [github.com/shawnyeager/mnml-hugo](https://github.com/shawnyeager/mnml-hugo)
-
-## Support the Original Theme
-
-If you like **mnml**, consider supporting the original creator: [Buy Jim a Coffee](https://buymeacoffee.com/jim.mitchell).
+**License**: MIT
