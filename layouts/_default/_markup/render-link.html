@@ -5,7 +5,6 @@
 {{- /* Handle video links */ -}}
 {{- if or (strings.HasSuffix $url ".mp4") (strings.HasSuffix $url ".mov") (strings.HasSuffix $url ".webm") -}}
 {{- .Page.Store.Set "hasVideo" true -}}
-</p>
 {{- /* Add leading slash if URL doesn't start with /, http://, or https:// */ -}}
 {{- $videoUrl := $url -}}
 {{- if and (not (hasPrefix $url "/")) (not (hasPrefix $url "http://")) (not (hasPrefix $url "https://")) -}}
@@ -17,7 +16,6 @@
   {{ $text }}
   {{- end }}
 </video>
-<p>
 {{- /* Handle Obsidian-style .md links (convert to Hugo relref) */ -}}
 {{- else if strings.HasSuffix $url ".md" -}}
 {{- $cleanUrl := strings.TrimSuffix $url ".md" -}}
