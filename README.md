@@ -244,24 +244,19 @@ Just a quick thought...
 <details>
 <summary><b>Photo Posts</b></summary>
 
-Add photos using the `photos` parameter. Store images in `assets/images/` for automatic processing:
+Add photos using standard markdown image syntax. Store images in `assets/images/` for automatic processing:
 
 ```markdown
 ---
 title: "My Photo Collection"
 date: 2025-10-06T10:00:00-00:00
 categories: ["Photos"]
-photos:
-  - "images/photo1.jpg"
-  - "images/photo2.jpg"
 ---
 
 Optional description...
-```
 
-Or use inline markdown:
-```markdown
-![Alt text](images/photo.jpg)
+![Alt text](images/photo1.jpg)
+![Alt text](images/photo2.jpg)
 ```
 
 **Image Processing** (Hugo Extended):
@@ -271,6 +266,8 @@ Or use inline markdown:
 - Cached in `resources/` for fast rebuilds
 
 Store images in `assets/images/` (processed) or `static/images/` (served as-is).
+
+**Note**: The `photos` frontmatter array is deprecated but still supported for backward compatibility with Micro.blog imports. New posts should use markdown image syntax instead.
 
 </details>
 
