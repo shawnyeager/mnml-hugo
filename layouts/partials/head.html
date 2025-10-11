@@ -20,14 +20,19 @@
   <meta property="og:description" content="{{ or .Summary .Content | truncate 65 | plainify }}">
   <meta name="twitter:description" content="{{ or .Summary .Content | truncate 125 | plainify }}">
   {{- end }}
-  {{- if .Params.photos }}  
-  {{- with index .Params.photos 0 }}
+  {{- $ogImage := "" -}}
+  {{- if .Params.image -}}
+    {{- $ogImage = .Params.image -}}
+  {{- else if .Params.opengraph -}}
+    {{- $ogImage = .Params.opengraph.image -}}
+  {{- else -}}
+    {{- $images := partial "get-images.html" . -}}
+    {{- if $images -}}
+      {{- $ogImage = index $images 0 -}}
+    {{- end -}}
+  {{- end -}}
+  {{- with $ogImage }}
   <meta property="og:image" content="{{ . }}">
-  {{- end }} 
-  {{- else }}
-  {{- with .Params.opengraph }}  
-  <meta property="og:image" content="{{ .image }}">
-  {{- end }} 
   {{- end }}
   {{- $creator := .Site.Params.fediverse_creator }}
   {{- if $creator }}

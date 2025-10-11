@@ -1,0 +1,13 @@
+{{- /*
+  Extract image paths from markdown content
+  Returns a slice of image paths found in ![](path) syntax
+  Usage: {{ $images := partial "get-images.html" . }}
+*/ -}}
+{{- $images := slice -}}
+{{- $content := .RawContent -}}
+{{- $matches := findRE `!\[[^\]]*\]\(([^)]+)\)` $content -}}
+{{- range $matches -}}
+  {{- $imagePath := replaceRE `!\[[^\]]*\]\(([^)]+)\)` "$1" . -}}
+  {{- $images = $images | append $imagePath -}}
+{{- end -}}
+{{- return $images -}}

@@ -7,10 +7,11 @@
     {{- end }}
     {{- $paginator := .Paginate (where .Pages.ByDate.Reverse "Type" "post") }}
     {{- range $paginator.Pages  }}
-    {{- if .Params.photos }}
+    {{- $images := partial "get-images.html" . }}
+    {{- if $images }}
     <article class="photos">
             <p class="post-date btm-margin"><a href="{{ .Permalink }}">{{- if .Site.Params.use_short_date }}{{ .Date | time.Format ":date_short" }}{{- else }}{{ .Date | time.Format ":date_full" }}{{- end }} →</a></p>
-            {{- range .Params.photos }}
+            {{- range $images }}
             <p><img src="{{ . }}" alt=""></p>
             {{- end }}
     </article>

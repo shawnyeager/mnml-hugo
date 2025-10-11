@@ -1,11 +1,5 @@
-{{- $allFormats := .Site.Params.all_formats }}
 {{- $singleImage := .Site.Params.single_image | default false }}
-{{- $list := slice }}
-{{- if $allFormats }}
-	{{- $list = where .Pages ".Params.images" "!=" nil }}
-{{- else }}
-	{{- $list = where .Pages ".Params.photos" "!=" nil }}
-{{- end }}
+{{- $list := .Pages }}
 {{- $len := (len $list) }}
 {{- $currentYearMonth := "" }}
 {{- range sort $list "Date" "desc" }}
@@ -21,20 +15,11 @@
 		<ul class="masonry-grid">
 		{{- $currentYearMonth = $yearMonth }}
 	{{- end }}
-	{{- if $allFormats }}
-		{{- $postPermalink := .Permalink }}
-		{{- if $singleImage }}
-			{{- with (first 1 .Params.images) }}
-				{{ range . }}
-				<li>
-					<a href="{{ $postPermalink }}">
-						<img src="{{ . }}" loading="lazy" />
-					</a>
-				</li>
-				{{ end }}
-			{{- end }}
-		{{- else }}
-			{{ range .Params.images }}
+	{{- $postPermalink := .Permalink }}
+	{{- $images := partial "get-images.html" . }}
+	{{- if $singleImage }}
+		{{- with (first 1 $images) }}
+			{{ range . }}
 			<li>
 				<a href="{{ $postPermalink }}">
 					<img src="{{ . }}" loading="lazy" />
@@ -43,26 +28,13 @@
 			{{ end }}
 		{{- end }}
 	{{- else }}
-		{{- $postPermalink := .Permalink }}
-		{{- if $singleImage }}
-			{{- with (first 1 .Params.photos) }}
-				{{ range . }}
-				<li>
-					<a href="{{ $postPermalink }}">
-						<img src="{{ . }}" loading="lazy" />
-					</a>
-				</li>
-				{{ end }}
-			{{- end }}
-		{{- else }}
-			{{ range .Params.photos }}
-			<li>
-				<a href="{{ $postPermalink }}">
-					<img src="{{ . }}" loading="lazy" />
-				</a>
-			</li>
-			{{ end }}
-		{{- end }}
+		{{ range $images }}
+		<li>
+			<a href="{{ $postPermalink }}">
+				<img src="{{ . }}" loading="lazy" />
+			</a>
+		</li>
+		{{ end }}
 	{{- end }}
 {{- end }}
 </ul>
